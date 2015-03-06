@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+
+.bonus-div {
+	height: 104px;
+	background-color: #cd4f50;
+	border: 1px solid #cd4f50;
+}
+.receive-img{
+	width: 40px;
+	height: 30px;
+	margin-left: 20px;
+	margin-right: 15px;
+}
+.font-blue-color {
+	color: #1e84cc;
+}
+
+.font-black-color {
+	color:black;
+}
+.font-white-color {
+	color:#fff;	
+}
+.my-div{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;	
+}
+.my-btn-div {
+	margin: 12px 0px;
+}
+
+.my-btn {
+	width: 96%;
+	margin: 0px auto !important;
+}
+.my-margin-top-1{
+	margin-top:10px
+}
+.my-margin-top-2{
+	margin-top:100px
+}
+.my-margin-left{
+	margin-left:10px
+}
+.text-align-center{
+	text-align: center;
+}
+.font-letter-spacing{
+	letter-spacing:2px;
+}

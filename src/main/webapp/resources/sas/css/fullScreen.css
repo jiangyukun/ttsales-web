@@ -1,0 +1,40 @@
+@media only all and (max-device-aspect-ratio:640/1136) {
+	.layer_container,button {
+		font-size: 1rem;
+	}
+}
+
+@media only all and (min-device-aspect-ratio:641/1136) and
+	(max-device-aspect-ratio:600/1024) {
+	.layer_container,button {
+		font-size: 0.961502347rem;
+	}
+}
+
+@media only all and (min-device-aspect-ratio:601/1024) and
+	(max-device-aspect-ratio:768/1280) {
+	.layer_container,button {
+		font-size: 0.938967136rem;
+	}
+}
+
+@media only all and (min-device-aspect-ratio:769/1280) and
+	(max-device-aspect-ratio:800/1280) {
+	.layer_container,button {
+		font-size: 0.901408451rem;
+	}
+}
+
+@media only all and (min-device-aspect-ratio:801/1280) and
+	(max-device-aspect-ratio:640/960) {
+	.layer_container,button {
+		font-size: 0.845070423rem;
+	}
+}
+
+@media only all and (min-device-aspect-ratio:641/960) and
+	(max-device-aspect-ratio:768/1024) {
+	.layer_container,button {
+		font-size: 0.751173709rem;
+	}
+}

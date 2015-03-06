@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>业绩跟踪</title>
+<base href="../../">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" >
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/icons.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="pages/report/css/performanceTracing.css?v=v1.0.9_20150005" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/artTemplate/artTemplate.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/report/js/performanceTracing.js?v=v1.0.9_20150005"></script>
+<script type="text/template" id="scheme_select">
+{{each schemeArray as scheme i}}
+	{{if select_pid == scheme.popularizeId }}
+		<option value="{{scheme.popularizeId}}" selected="selected">{{scheme.title}}</option>
+	{{ else }}
+		<option value="{{scheme.popularizeId}}" >{{scheme.title}}</option>
+	{{/if}}
+{{/each}}
+</script>
+<script type="text/template" id="perfromance_content_template">
+	<div class="content-item-title">我的直接业绩</div>
+	<div class="content-item">
+		<div class="content-item-left">
+			<span>转发数</span>
+			<span>{{myTrasmitCount}}</span>
+		</div>
+		<div class="content-item-right">
+			<span>被阅读数</span>
+			<span>{{myReadCount}}</span>
+		</div>
+	</div>
+	<div class="content-item">
+		<div class="content-item-left">
+			<span>预约数</span>
+			<span>{{myReversCount}}</span>
+		</div>
+		<div class="content-item-right">
+			<span>到店数</span>
+			<span>{{myArriveCount}}</span>
+		</div>
+	</div>
+	<div class="content-item-title">累积业绩（<span>含所有好友</span>）</div>
+	<div class="content-item">
+		<div class="content-item-left">
+			<span>转发数</span>
+			<span>{{allTrasmitCount}}</span>
+		</div>
+		<div class="content-item-right">
+			<span>被阅读数</span>
+			<span>{{allReadCount}}</span>
+		</div>
+	</div>
+	<div class="content-item">
+		<div class="content-item-left">
+			<span>预约数</span>
+			<span>{{allReversCount}}</span>
+		</div>
+		<div class="content-item-right">
+			<span>到店数</span>
+			<span>{{allArriveCount}}</span>
+		</div>
+	</div>
+</script>
+<script type="text/template" id="btns">
+	{{if state == 1}}
+		<input class="btn-positive my-btn" onclick="perTracing.goFriendsDevote()" type="button" value="好友贡献排行" ></input>
+	{{else}}
+		<input class="btn-cancle my-btn" type="button" value="好友贡献排行" disabled="disabled"></input>
+	{{/if}}
+</script>
+<script type="text/template" id="no_performance_data">
+	<div class="no-data">暂无产品数据</div>
+</script>
+<script type="text/template" id="load_schemes_error">
+	<div class="no-data">获取产品列表失败</div>
+</script>
+<script type="text/template" id="load_performance_error">
+	<div class="no-data">获取业绩数据失败</div>
+</script>
+</head>
+<body>
+	<div class="page-full-screen">
+		<div class="page-container font-family-heiti">
+			<div class="list-item border-top-bottom my-list-item">
+				<div class="my-left">
+					<span class="font-size-l">产品</span>
+				</div>
+				<div class="layout-right">
+					<select id="select_product" onchange="perTracing.queryPerformance()" class="input my-input">
+						<option>您暂时无产品</option>
+					</select>
+				</div>
+				<div class="btn-list-item-right my-icon-div">
+					<div class="btn-item-jump-color font-size-l icon-pop-jump"></div>
+				</div>
+			</div>
+			<div id="perfromance_content"></div>
+			<div id="my_btn"></div>
+		</div>
+	</div>
+</body>
+</html>

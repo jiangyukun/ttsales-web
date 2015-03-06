@@ -1,0 +1,52 @@
+.my-container-top {
+	margin-top: 36px;
+}
+
+.my-list {
+	border-top: 1px solid #bebebe;
+	border-bottom: 1px solid #bebebe;
+	background-color:#FFFFFF;
+}
+
+.my-join-item {
+	height: 42px;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.name-img {
+	width: 18px;
+	height: 24px;
+	padding: 9px 10px 9px 12px;
+}
+
+.weixin-img {
+	width: 21px;
+	height: 17px;
+	padding: 13px 8px 12px 11px;
+}
+
+.my-input-div {
+	padding-right:18px;
+}
+
+.my-hr {
+	margin-left: 40px;
+}
+
+.my-checkbox-group-div {
+	margin: 20px 40px
+}
+
+.my-checkbox-div {
+	padding-bottom: 15px;
+}
+
+.my-checkbox {
+	margin-left: 0px;
+}
+
+.my-checkbox-lable {
+	padding-left:10px;
+}

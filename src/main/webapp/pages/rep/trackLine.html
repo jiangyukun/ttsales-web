@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>关系链路</title>
+<base href="../../" />
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=medium-dpi" >
+<link type="text/css" rel="stylesheet" href="resources/rt/theme/default/rtAll.min.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/humane/humane/custom.css" />
+<link type="text/css" rel="stylesheet" href="pages/rep/css/trackLine.css?v=v1.0.9_20150005" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/rt/jquery.rt.all.min.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/artTemplate/artTemplate.js"></script>
+<script type="text/javascript" src="resources/humane/humane.min.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/rep/js/trackLine.js?v=v1.0.9_20150005"></script>
+<script id="track_line" type="text/template">
+	{{each data as user i}}
+		<div class="list-item">
+			{{if i==0}}
+				<div class="my-track-line-head">
+				{{else}}
+				<div class="my-track-line">
+			{{/if}}
+				{{if user.headUrl}}
+					{{if i==0}}
+						<img class="head-img-head" src='{{user.headUrl}}'/>
+						{{else}}
+						<img class="head-img" src='{{user.headUrl}}'/>
+					{{/if}}
+					{{else}}
+					{{if i==0}}
+						<img class="head-img-head" src='resources/sas/img/no_head_pic.png'/>
+						{{else}}
+						<img class="head-img" src='resources/sas/img/no_head_pic.png'/>
+					{{/if}}
+				{{/if}}
+				<div class="layout-left my-left">
+					<div>
+						{{if user.gender}}
+							{{if user.gender=='0'}}
+								<img class="gender-man-img" src='resources/sas/img/man.png'/>
+								{{else}}
+								<img class="gender-female-img" src='resources/sas/img/female.png'/>
+							{{/if}}
+							{{else}}
+								<div class="blank-div"></div>
+						{{/if}}
+						<span class="name-span font-size-l font-title-rf-color">{{user.nickName}}</span>
+					</div>
+					<div>
+						{{if i==0}}
+							<img class="transmit_img" src='resources/sas/img/transmit_white.png'/>
+						{{else}}
+							<img class="transmit_img" src='resources/sas/img/transmit.png'/>
+						{{/if}}
+						{{if i==0}}
+							<span class="white-time-span font-size-s">{{user.traTime}}</span>
+						{{else}}
+							<span class="time-span font-size-s">{{user.traTime}}</span>
+						{{/if}}
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		{{if i==data.length-1}}
+			<div style="display:none">
+			{{else}}
+			<div>
+		{{/if}}
+			 <div class="line_m"></div>
+			 <div style="width: 13px;height: 13px;margin-left: 45.5px;background-image: url('resources/sas/img/downward.png');background-position:center;"></div>
+			 <div class="line_l"></div>
+		</div>
+	{{/each}}
+</script>
+</head>
+
+<body>
+	<div id="page">
+		<div class="page-container font-family-heiti">
+			<div>
+			 	<div class="line_s"></div>
+			 	<div class="my-circular-div">
+			 		<div class="circular"></div>
+			 		<span class="my-margin-left">我的关系</span>
+			 	</div>
+			 	<div class="line_m"></div>
+			</div>
+			<div id='trackLine' class="list-has-data">
+				 <!--  <div class="list-item">
+					<div class="my-track-line">
+						<img class="head-img" src='http://wx.qlogo.cn/mmopen/PiajxSqBRaEIMH0iaHN0Dsesx5ialJTzYZbNqG9HBCpvHUDHibZroELcxXjl7gBUrnia6NAFtSu0BiaBt3GoR3wLp7uA/0'/>
+						<div class="layout-left my-left">
+							<div>
+								<img class="gender-female-img" src='resources/sas/img/female.png'/>
+								<span class="name-span font-size-l font-title-rf-color">金利源</span>
+							</div>
+							<div>
+								<img class="transmit_img" src='resources/sas/img/transmit.png'/>
+								<span class="time-span font-size-s">2014-12-22 16:00:00</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+			 		<div class="line_m"></div>
+			 		<div style="width: 13px;height: 13px;margin-left: 45.5px;background-image: url('resources/sas/img/downward.png');background-position:center;"></div>
+			 		<div class="line_l"></div>
+				</div>-->
+			</div>
+		</div>
+	</div>
+</body>
+</html>

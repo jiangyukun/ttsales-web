@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>好友贡献排行榜</title>
+<base href="../../" />
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=medium-dpi" >
+<link type="text/css" rel="stylesheet" href="resources/rt/theme/default/rtAll.min.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/icons.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="pages/report/css/friendsDevote.css?v=v1.0.9_20150005" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/artTemplate/artTemplate.js"></script>
+<script type="text/javascript" src="resources/rt/jquery.rt.all.min.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/report/js/friendsDevote.js?v=v1.0.9_20150005"></script>
+<script type="text/template" id="performance_rank">
+	<span class="table-title">
+		{{ if type == 'transmit' }}转发总数前5名{{/if}}
+		{{ if type == 'read' }} 被阅读总数前5名{{/if}}
+		{{ if type == 'reserve' }}预约总数前5名{{/if}}
+		{{ if type == 'arrive' }}到店总数前5名{{/if}}
+	</span>
+	{{ if rd != 'null' }}
+		<table class="table">
+			<tr>
+				<th>序号</th><th>姓名</th>
+				<th>
+					{{if type=='transmit'}}转发{{/if}}{{if type=='read'}}阅读{{/if}}
+					{{if type=='reserve'}}预约{{/if}}{{if type=='arrive'}}到店{{/if}}
+				</th>
+			</tr>
+			{{ each rd as d i }}
+				<tr>
+					<td>{{i + 1}}</td>
+					<td>
+						{{ if rank == 1}}
+							<a href='pages/rep/trackLine.html?v=v1.0.9_20150005&popularizeId={{popularizeId}}&userCrossId={{d.userCrossId}}'>{{d.nickName}}</a>
+						{{ else }}
+							{{d.nickName}}
+						{{ /if }}
+					</td>
+					<td>{{d.count}}</td>
+				</tr>
+			{{/each}}
+		</table>
+	{{ else }}	
+		<table class="table">
+			<tr>
+				<th>序号</th><th>姓名</th>
+				<th>
+					{{if type=='transmit'}}转发{{/if}}{{if type=='read'}}阅读{{/if}}
+					{{if type=='reserve'}}预约{{/if}}{{if type=='arrive'}}到店{{/if}}
+				</th>
+			</tr>
+			<tr>
+				<td colspan="3">暂无数据</td>
+			</tr>
+		</table>		
+	{{/if}}	
+</script>
+</head>
+<body>
+	<div class="page-full-screen hidden">
+		<div class="page-container font-family-heiti page-container-margin-top my-page-container">
+			<div id="tabs" class="my-tabs" data-role="rtTabs" data-options="{align:'center',width:'200px'}">
+				<div class="font-size-s">我的好友</div>
+				<div class="font-size-s">所有人员</div>
+			</div>
+			<div class="list-has-data my-list">
+				<div id="tab_0" class="tab-containt"></div>
+				<div id="tab_1" class="tab-containt"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

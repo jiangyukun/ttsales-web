@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>  
+<base href="../../" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+ 
+</head>     
+<script>
+$(function(){
+	weixin.config({
+        debug: false,
+        jsApiList: ['onMenuShareTimeline','hideOptionMenu','hideMenuItems', 'showOptionMenu', 'onMenuShareAppMessage','getNetworkType']
+    });
+	weixin.ready(function () {
+		weixin.hideOptionMenu();
+		ttt();
+    });
+//	if (typeof WeixinJSBridge == "undefined"){
+//	    if( document.addEventListener ){
+//	        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady(){
+//	        	WeixinJSBridge.call('hideOptionMenu');
+//	        	ttt();
+//	        }, false);
+//	    }else if (document.attachEvent){
+//	        document.attachEvent('WeixinJSBridgeReady',  function onBridgeReady(){
+//	        	WeixinJSBridge.call('hideOptionMenu');
+//	        	ttt();
+//	        }); 
+//	        document.attachEvent('onWeixinJSBridgeReady',  function onBridgeReady(){
+//	        	WeixinJSBridge.call('hideOptionMenu');
+//	        	ttt();
+//	        });
+//	    }
+//	}else{
+//		WeixinJSBridge.call('hideOptionMenu');
+//		ttt();
+//	}
+});
+function ttt(){
+	var msg = $.sas.util.getUrlParam('msg');
+	if(msg=='-1'){
+		$('#msg').html('不是企业号成员！');
+		return;
+	}else if(msg=='-2'){
+		$('#msg').html('企业号成员暂未关注！');
+		return;
+	}else if(msg=='0'){
+		/* var count = $.cookie("YlksObtainCount");
+		if(count==undefined||count==''){
+			count=0;
+	 	}    
+		if(count>1){ 
+			$('#msg').html('您已经领过了哦！');
+ 			 return;
+		}  
+		$.cookie("YlksObtainCount",count*1+1,{
+			expires : 365,
+			path: '/'
+		});  */
+		 setTimeout(function(){
+			 window.location.replace($.sas.util.getUrlParam('url'));  
+		 }, 500);
+		
+	} 
+}
+
+
+/* 
+$.sas.weixin.hideOptionMenu();  
+$(function(){
+	var msg = $.sas.util.getUrlParam('msg');
+	if(msg=='-1'){
+		$('#msg').html('不是企业号成员！');
+		return;
+	}else if(msg=='-2'){
+		$('#msg').html('企业号成员暂未关注！');
+		return;
+	}else if(msg=='0'){
+		var count = $.cookie("YlksObtainCount");
+		if(count==undefined||count==''){
+			count=0;
+	 	}    
+		if(count>1){ 
+			$('#msg').html('您已经领过了哦！');
+ 			 return;
+		}  
+		$.cookie("YlksObtainCount",count*1+1);
+	 	setTimeout(function(){
+			window.location.replace($.sas.util.getUrlParam('url'));   
+		}, 100); 
+	}
+ });  */
+</script>
+<body>
+	<h1 id="msg"></h1>
+</body>
+</html>

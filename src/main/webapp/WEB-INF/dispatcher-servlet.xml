@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<beans xmlns="http://www.springframework.org/schema/beans"
+			xmlns:aop="http://www.springframework.org/schema/aop" 
+			xmlns:context="http://www.springframework.org/schema/context"
+			xmlns:mvc="http://www.springframework.org/schema/mvc" 
+			xmlns:tx="http://www.springframework.org/schema/tx"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://www.springframework.org/schema/beans   
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+            http://www.springframework.org/schema/context   
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd   
+            http://www.springframework.org/schema/mvc   
+            http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+	<context:component-scan base-package="cn.ttsales.work.web" />
+	<context:component-scan base-package="cn.ttsales.org.web" />
+	<!--启动spring mvc 的注解功能 -->
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler />
+	<bean 
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<mvc:resources mapping="/img/**" location="/img/" />
+	<mvc:resources mapping="/js/**" location="/js/" />
+	<mvc:resources mapping="/css/**" location="/css/" />
+	<mvc:resources mapping="/flash/**" location="/flash/" />
+	
+	
+	<mvc:interceptors>
+		<!-- <mvc:interceptor>
+		    <mvc:mapping path="*/bus/*"/> -->
+      		<bean class="cn.ttsales.work.web.filter.CommonInterceptor" />
+		<!-- </mvc:interceptor> -->
+    </mvc:interceptors>
+
+	<!-- <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="prefix">
+			<value>/</value>
+		</property>
+		<property name="suffix">
+			<value>.ftl</value>
+		</property>
+		<property name="contentType">
+			<value>text/html</value>
+		</property>
+	</bean>  -->
+	
+	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="viewClass" value="psychlab.web.common.MyFreeMarkerView"></property>
+		<property name="suffix" value=".ftl"></property>
+		<property name="requestContextAttribute" value="rc" />  
+	    <property name="contentType" value="text/html;charset=utf-8"/>
+	</bean>
+	
+	<bean id="freemarkerConfig"
+        class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath">
+			<value>/ftls/</value>
+		</property>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">0</prop>
+                <prop key="default_encoding">utf-8</prop>
+                <prop key="locale">zh_CN</prop>
+                <prop key="date_format">yyyy-MM-dd</prop>
+            </props>
+        </property>
+    </bean> -->
+	
+</beans>  

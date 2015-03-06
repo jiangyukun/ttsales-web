@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!-- HTML文件命名规则：ProductScheme-<SchemeID>.html-->
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- title命名规则：<产品名称> -->
+<title>伊莱克斯发红包啦（测）</title>    
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=medium-dpi" >
+<base href="../../" />
+<link type="text/css" rel="stylesheet" href="resources/rt/theme/default/rtAll.min.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/humane/humane/custom.css" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/rt/jquery.rt.all.min.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="resources/jquery/jquery.base64.js"></script>
+<script type="text/javascript" src="resources/humane/humane.min.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/htmls/js/schemeCommon.js?v=v1.0.9_20150005"></script>   
+<style>    
+body {
+	overflow: auto; 
+	-webkit-overflow-scrolling: touch;
+	background-color: #f0f0f6;
+}   
+
+.my-content-div {
+	position: fixed; 
+	top: 0px; 
+	bottom: 0px; 
+	overflow: scroll; 
+	width: 100%;
+}
+
+.my-head {
+	background-color: #686158 !important;
+}
+
+.my-head-texts {
+	padding: 5px 10px 5px 10px; 
+}
+
+.my-head-span-div {
+	padding-left:20px; 
+	text-indent:-20px;
+}
+
+.font-yellow-color {
+	color: #f7d80c !important;
+}
+
+.font-blue-color {
+	color: #1e84cc !important;
+}
+
+.font-red-color {
+	color: #b12449 !important;
+}
+
+.my-remark-div {
+	padding-left: 8px; 
+	padding-right: 8px; 
+	padding-bottom: 60px;
+	line-height: 18px;
+}
+
+.my-img-ylks1, .my-img-ylks2, .my-img-ylks3 {
+	width:100%; 
+}
+
+.my-img-ylks2 {
+	padding-bottom: 15px;
+}
+
+.my-img-ylks3 {
+	padding-top: 4px; 
+	padding-bottom: 21px;
+}
+
+.my-time {
+	text-align: center; 
+	font-size: 10px;
+}
+
+.my-title {
+	text-align: center; 
+	font-size: 15px; 
+	padding-top: 20px; 
+	padding-bottom: 10px;
+}
+
+.my-btn-div {
+	position: fixed;
+	bottom: 0px; 
+	padding: 7px 0px;
+	background-color: rgba(0,0,0,0.5)
+}
+
+.my-btn {
+	width: 70%;
+	margin: 0px auto !important;
+	text-decoration: none;
+	text-align: center;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+</style>
+<script type="text/javascript">
+var productScheme = function(){
+	var defaults = {
+		global : schemeCommon.getGlobal()
+	};
+	
+	function initToolbar() {// 
+		if (defaults.global.pTransmitId == "0") {//企业用户
+			$('#welcome_text1').removeClass("ui-hidden-accessible");
+		} else {
+			var oAuthUrl = $('#oAuthBtn').attr('href') + "?userCrossId=" + schemeCommon.getOCookie();
+			var reserveUrl = $('#reserveBtn').attr('href') + "?schemeId=" + defaults.global.schemeId + "&popularizeId=" + defaults.global.popularizeId
+					+ "&pTransmitId=" + defaults.global.pTransmitId + "&userCrossId=" + schemeCommon.getOCookie();
+			$('#oAuthBtn').attr('href', oAuthUrl);
+			$('#reserveBtn').attr('href', reserveUrl);
+			$('#toolbar_region').removeClass("ui-hidden-accessible");
+			$('#welcome_text2').removeClass("ui-hidden-accessible");
+		}
+	};
+
+	function initSchemePage() {
+		var bgWidth = $('#bg_width').val();
+		var bgHeight = $('#bg_height').val();
+		var textHeight = $('#head_text').outerHeight();
+		$('body').css('background-position', '0 ' + textHeight + 'px');
+		var docWidth = $(document).width();
+		var docHeight = docWidth / bgWidth * bgHeight + textHeight;
+		$('body').css('height', docHeight);
+		$('body').css('width', docWidth);
+	}
+	
+	return {
+		initPage:function(){
+			initToolbar();
+			initSchemePage();
+		}
+	};
+}();
+
+
+
+$(function() {
+	schemeCommon.onPageReady(function() {
+		productScheme.initPage();
+	}, true, false, false);
+});
+
+function onBtnClick(){
+	if (typeof WeixinJSBridge == "undefined"){
+	    if( document.addEventListener ){
+	        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady(){
+	        	WeixinJSBridge.call('hideOptionMenu');
+	        	getCoupon();
+ 	        }, false);
+	    }else if (document.attachEvent){
+	        document.attachEvent('WeixinJSBridgeReady',  function onBridgeReady(){
+	        	WeixinJSBridge.call('hideOptionMenu');
+	        	getCoupon();
+ 	        }); 
+	        document.attachEvent('onWeixinJSBridgeReady',  function onBridgeReady(){
+	        	WeixinJSBridge.call('hideOptionMenu');
+	        	getCoupon();
+ 	        });
+	    }
+	}else{
+		WeixinJSBridge.call('hideOptionMenu');
+		getCoupon();
+ 	}
+}
+
+function getCoupon(){
+	var schemeId = $('#scheme_id').val();
+	/* var count = $.cookie(schemeId+"ObtainCount");
+	if(count==undefined||count==''){
+		count=0;
+ 	}    
+	if(count>1){ 
+		 humane.info("您已经领过了哦！");
+		 $.sas.weixin.showOptionMenu(); 
+		 return;
+	}    */  
+   	$.ajax({  
+		type : "POST",
+		url : $.sas.common.getRootPath()+"/bus/coupon/obtainCoupon.do",
+		async : false,
+		data : {
+			userCrossId:$.cookie("OpenUserCrossId"),
+			schemeId:$('#scheme_id').val()
+		},
+		success : function(data) { 
+			 if(data.msg!='ok'){  
+				$.sas.weixin.showOptionMenu(); 
+ 				 humane.info(data.msg); 
+				 return; 
+			 }      
+			/*  $.cookie(schemeId+"ObtainCount",count*1+1,{
+					expires : 365,
+					path: '/'
+				}); */ 
+			 setTimeout(function(){
+	 			 window.location.href=data.url;
+			 }, 500);
+   		},       
+		dataType:'json'
+	}); 
+}
+ 
+</script>
+</head>
+ 
+<body>
+	<!-- 以下标签由生成该html时根据产品推广文案写入 -->   
+	<input type="hidden" id="scheme_id"	name="scheme_id" value="998001">
+	<input type="hidden" id="scheme_thumbnailurl" name="scheme_thumbnailurl" value="upload/ylks.jpg">
+	<input type="hidden" id="scheme_summary" name="scheme_summary" value="小伊给你发红包！转发即得抵用券！">
+	<input type="hidden" id="scheme_title" name="scheme_title" value="伊莱克斯发红包啦（测）">
+	<input type="hidden" id="bg_height" name="bg_height" value="1363">
+	<input type="hidden" id="bg_width" name="bg_width" value="640"> 
+	
+	<div class="my-content-div">
+		<div id="head_text" data-role="header" class="my-head" >
+			<div id="welcome_text1" class="ui-hidden-accessible font-size-t font-btn-color-white my-head-texts">
+				<div class="my-head-span-div">1）<span class="font-yellow-color">2014年12月10日24：00点</span>前加入微车企业号的<span class="font-yellow-color">前1000名亲</span>，有机会领取1号店<span class="font-yellow-color">20元</span>抵用券一张。（抵用卷使用解释权归一号店所有。）</div>
+				<div class="my-head-span-div">2）即日起至<span class="font-yellow-color">2014年12月12日24：00时</span>，您的转发，每促成一次成功交易，您即可分享微信现金红包！详情见活动介绍。</div>
+				<div class="my-head-span-div">3）即日起至<span class="font-yellow-color">2014年12月12日24：00时</span>，伊莱克斯内部员工，如果您的转发带来的阅读量，<span class="font-yellow-color">排名前100名者</span>，即可获得<span class="font-yellow-color">每人50元</span>的微信现金红包！</div>
+			</div>
+			<div id="welcome_text2" class="ui-hidden-accessible font-size-t font-btn-color-white my-head-texts">	
+				若要查看是否已经抢到红包，请点击<span class="font-yellow-color">申请红包</span>，并<span class="font-yellow-color">关注微车</span>，即可看到红包金额哦！红包金额时时更新，亲记得要经常查看哦！<br>
+				活动截止日期：<span class="font-yellow-color">2014年12月12日24：00时</span>
+			</div> 
+		</div>
+		
+		<img src="resources/sas/img/scheme/201001/ylks1.jpg" class="my-img-ylks1"/>
+		
+		<div class="font-size-t my-remark-div">
+			<div class="my-time">活动时间：即日起至2014年12月12日24：00 时 </div>
+			<div class="my-title">小伊给你发红包！转发即得抵用券！</div>
+			<img src="resources/sas/img/scheme/201001/ylks2.jpg" class="my-img-ylks2"/>
+			
+			2014年12月10日24：00点前加入微车企业号的前1000亲们，有机会领取1号店20元抵用券一张。活动期间，未加入微车企业号的亲们，如果转发此信息到好友或好友群，前5000名也会有1号店10元抵用券进账哦。让钱包更鼓一点吧！（抵用卷使用解释权归一号店所有。）<br><br>
+			同时，转发出去的活动只要促成一次购买，即可获得伊莱克斯送出的大红包！！！转者有份哦！<br>
+			<span class="font-blue-color">举个例子：</span>假如牛魔王把信息转发给了孙悟空，孙悟空发给了猪八戒，猪八戒转发给了沙和尚，最后如果沙和尚购买了小伊家的冰箱，那么牛魔王，孙悟空，猪八戒可一同分享小伊送出的微信现金红包！<br><br>
+			当然，木有高品质的产品，怎么征服大家！小伊准备了两款明星产品亮相此次双12钜惠活动:<br>
+
+			<span class="font-red-color">第一款：</span>三门冰箱智捷：经典外观，宽幅变温，三温三控，有效吸收异味。如成交，转发者可分享现金红包100元/台。
+			<img src="resources/sas/img/scheme/201001/ylks3.jpg" class="my-img-ylks3"/>
+			
+			<span class="font-red-color">第二款：</span>多门冰箱欧宇：风冷无霜，变频压缩机，双档调湿，七折底价倾力奉献。如成交，转发者可分享现金红包150元/台。
+			<img src="resources/sas/img/scheme/201001/ylks4.jpg" class="my-img-ylks3"/>
+			
+			通过微车平台生成的促销码在天猫庆顺店购买以上两款产品，除享受店内优惠活动外，还可享受5年保修期哦！亲们，不要犹豫了，奔跑吧，红包！！<br><br>
+			点击下面<span class="font-red-color">【我要购买】</span>获取微信促销码。微车平台用户，请通过转发亲朋好友获取促销码下单。<br><br>
+			（红包分配原则：以文中例子为例，如果沙和尚买了三门智捷冰箱，那么牛魔王分得：1/(1+2+3)*1*100元=16.67元；孙悟空分得：1/（1+2+3）*2*100元=33.33元；猪八戒分得：1/(1+2+3)*3*100元=50元） <br><br>
+			注：以任何方式批量领取一号店抵用卷或现金红包属违反活动规定之行为，一号店及微车平台保留更正或调整的最终权利<br>
+		</div>
+	</div>
+	
+	<div id="toolbar_region" class="ui-hidden-accessible list-contain-center-item my-btn-div">
+		<div class="layout-center" > 
+			<!-- <a class="btn-receive font-size-l my-btn" onclick="onBtnClick();">领取卡券</a> -->
+			<a class="btn-receive font-size-l my-btn" >领取卡券</a> 
+		</div>
+		<div class="layout-center">  
+			<a class="btn-apply font-size-l my-btn" id="oAuthBtn"  href="bus/redPaper/init.do"  >申请红包</a>
+		</div>  
+		<div class="layout-center"> 
+			<a id="reserveBtn"  class="btn-positive font-size-l my-btn"  href="bus/reserveYlks/init.do" >我要购买</a>
+		</div>
+	</div>
+	<div data-role="rtGuide" data-options="{guideBtn:'#shareBtn',guideImg:'resources/sas/img/guide/shareGuide.png'}"></div>
+	
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>红包领取</title>
+<base href="../../" />
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=medium-dpi" >
+<link type="text/css" rel="stylesheet" href="resources/rt/theme/default/rtAll.min.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/humane/humane/custom.css" />
+<link type="text/css" rel="stylesheet" href="pages/report/css/bonusReceive.css?v=v1.0.9_20150005" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/rt/jquery.rt.all.min.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/humane/humane.min.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/report/js/bonusReceive.js?v=v1.0.9_20150005"></script>
+</head>
+
+<body>
+	<div id="page" class="page-full-screen">
+		<div class="page-container font-family-heiti">
+			<div class="bonus-div font-btn-color-white">
+				<div style="height: 32px;"></div>
+				<div class="list-contain-center-item font-size-xl">
+					<img class="rmb-img" src="resources/sas/img/rmb.png" />
+					<div class="layout-center">领取金额：</div>
+					<input  type="number"  class="rmb-border-div" id="rmb_receive" readOnly="true"/>
+				</div>
+				<div style="height: 13px;"></div>
+				<div class="list-contain-center-item font-size-m">
+					<div class="layout-right rmb-surplus-div" >
+						余额：<span id="rmb_surplus"></span>
+					</div>
+				</div>
+			</div>
+			<div style="height: 53px;"></div>
+			<div class="read-agreement-div" style="display:none;">
+				<div class="checkbox-div">
+					<input id="agree" type="checkbox" data-role="rtCheckbox"/>
+					<label class="font-input-aft-color font-size-s">
+						我已阅读并同意微车平台
+					</label>
+					<span class="font-blue-color font-size-s" onclick="bonusReceive.jumptoAgreement()">红包领取协议</span>
+				</div>
+			</div>
+			<div class="list-contain-center-item my-btn-div">
+				<div class="layout-center"> 
+					<input class="btn-cancle font-size-l my-btn" type="button" onclick="bonusReceive.cancel()" value="&nbsp;&nbsp;&nbsp;&nbsp;取消&nbsp;&nbsp;&nbsp;&nbsp;" />
+				</div>
+				<div class="layout-right">
+					<input id="confirmBtn" class="btn-positive font-size-l my-btn" type="button" onclick="bonusReceive.confirm()" value="确认领取" />
+				</div>
+			</div>
+
+			<div style="height: 98px;"></div>
+			<div class="font-size-s my-rules-div">
+				<div class="font-red-color">领取规则：</div>
+				<div class="font-input-aft-color">
+					单个红包金额介于[1.00元，200.00元]之间。
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

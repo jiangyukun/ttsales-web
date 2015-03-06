@@ -1,0 +1,118 @@
+.arrow-up{
+	height:auto;
+	width:25px;
+	position:absolute;
+	left:50%;
+	top:92%;
+	margin-left:-12px;
+	z-index:99;
+}
+
+.page-content{
+	width: 100%; 
+	height: 100%;
+	background: url(../../../resources/sas/img/intro/background.jpg) no-repeat center;
+	background-size: cover; 
+	
+}
+
+.page{
+	width:100%;
+	height:100%;
+	position:absolute;
+	text-align:center;
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.page-1{ background-image: url(../../../resources/sas/img/intro/font.png);}
+.page-2{ background-image: url(../../../resources/sas/img/intro/start-money.png);}
+.page-3{ background-image: url(../../../resources/sas/img/intro/jiangli.png);}
+.page-4{ background-image: url(../../../resources/sas/img/intro/linghongbao01.png);}
+.page-5{ background-image: url(../../../resources/sas/img/intro/linghongbao02.png);}
+.page-6{ background-image: url(../../../resources/sas/img/intro/qiangdan.png);}
+.page-7{ background-image: url(../../../resources/sas/img/intro/daodian.png);}
+.page-8{ background-image: url(../../../resources/sas/img/intro/final.png);}
+
+.page-current{
+	z-index:1;
+}
+
+.hide{ 
+	display:none;
+}
+
+/* Ô²µã */
+.dotstyle ul {
+	position: absolute;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	cursor: default;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	height: 174px;
+	top:0;
+	bottom: 0;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.dotstyle li {
+	position: relative;
+	display: block;
+	margin: 15px 10px;
+	width: 6px;
+	height: 6px;
+	cursor: pointer;
+}
+
+.dotstyle li a {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	outline: none;
+	border-radius: 50%;
+/*	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.3);*/
+	background-color: #3d3c54;
+	text-indent: -999em; /* make the text accessible to screen readers */
+	cursor: pointer;
+	position: absolute;
+}
+
+.dotstyle li a:focus {
+	outline: none;
+}
+/* Scale up */
+
+.dotstyle-scaleup li a {
+	-webkit-transition: -webkit-transform 0.3s ease, background-color 0.3s ease;
+	transition: transform 0.3s ease, background-color 0.3s ease;
+	display:inline
+}
+
+/*.dotstyle-scaleup li a:hover,
+ .dotstyle-scaleup li a:focus {
+	background-color: white;
+}*/
+
+.dotstyle-scaleup li.current a {
+	background-color: #e3e3f0;
+	-webkit-transform: scale(1.33);
+	transform: scale(1.33);
+}
+.dotstyle_line{
+	background-color: #3d3c54;
+	width: 2px;
+	height: 21px;
+	margin: auto;
+}
+

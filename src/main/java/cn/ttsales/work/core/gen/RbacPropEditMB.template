@@ -1,0 +1,116 @@
+/**
+ * Copyright (c) 2012 RATANSOFT.All rights reserved.
+ * @filename RbacMenuMB.java
+ * @package psychlab.web.rbac
+ * @author dandyzheng
+ * @date 2013-3-28
+ */
+package psychlab.core.gen;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
+
+import psychlab.core.util.StringUtil;
+import psychlab.domain.RbacProp;
+import psychlab.service.rbac.RbacPropService;
+import psychlab.web.common.AbstractClassBaseMB;
+import psychlab.web.util.JsfUtil;
+
+
+/**
+ * 
+ * @author dandyzheng
+ * 
+ */
+@ManagedBean(name = "rbacPropEditMB")
+@ViewScoped
+public class RbacPropEditMB extends AbstractClassBaseMB {
+	private static final long serialVersionUID = 1L;
+	
+	private final String PROP_ID = "propId";
+	
+	@ManagedProperty("#{rbacPropService}")
+	private RbacPropService rbacPropService;
+
+	private RbacProp currentRbacProp;
+	
+	public RbacPropEditMB() {
+		System.out.println("init RbacPropEditMB");
+	}
+
+	@Override
+	public void initPage() {
+		if (currentRbacProp == null) {
+			currentRbacProp = new RbacProp();
+		}
+		preUpdate();
+	}
+	
+
+	public void preAdd(){
+		if (currentRbacProp == null) {
+			currentRbacProp = new RbacProp();
+		}
+		if(StringUtil.isEmpty(currentRbacProp.getPropId())){
+			currentRbacProp.setPropId(null);
+		}
+	}
+
+	public void excAdd() {
+		preAdd();
+		this.rbacPropService.saveRbacProp(this.currentRbacProp);
+		aftAdd();
+	}
+
+	public void aftAdd() {
+		JsfUtil.redirect("rbacPropList",null);
+	}
+
+	public void preUpdate() {
+		currentRbacProp.setPropId(JsfUtil.getGetParam(this.PROP_ID));
+		if(!StringUtil.isEmpty(currentRbacProp.getPropId())){
+			currentRbacProp = this.rbacPropService.getRbacProp(currentRbacProp.getPropId());
+		}
+	}
+
+	public void excUpdate() {
+		this.rbacPropService.editRbacProp(this.currentRbacProp);
+		aftUpdate();
+	}
+
+	public void aftUpdate() {
+		JsfUtil.redirect("rbacPropList",null);
+	}
+	
+	public void saveOrUpdate(){
+		if(!StringUtil.isEmpty(currentRbacProp.getPropId())){
+			this.excUpdate();
+		}else{
+			this.excAdd();
+		}
+	}
+	
+	public void goBack(){
+		JsfUtil.redirect("rbacPropList", null);
+	}
+
+
+	public RbacPropService getRbacPropService() {
+		return rbacPropService;
+	}
+
+	public void setRbacPropService(RbacPropService rbacPropService) {
+		this.rbacPropService = rbacPropService;
+	}
+
+
+	public RbacProp getCurrentRbacProp() {
+		return currentRbacProp;
+	}
+
+	public void setCurrentRbacProp(RbacProp currentRbacProp) {
+		this.currentRbacProp = currentRbacProp;
+	}
+	
+}

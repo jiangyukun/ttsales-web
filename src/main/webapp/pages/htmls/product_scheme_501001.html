@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="format-detection" content="telephone=no">
+<!--禁用手机号码链接(for iPhone)-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui" />
+<!--自适应设备宽度-->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!--控制全屏时顶部状态栏的外，默认白色-->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>你的心愿是？</title>
+<base href="../../" />
+<link rel="apple-touch-icon" href="pages/htmls/images/icon.png" />
+<!--是否允许全屏显，只有在桌面启动时可用-->
+<link type="text/css" rel="stylesheet" href="pages/htmls/css/reset.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="pages/htmls/css/base.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="pages/htmls/css/style.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="pages/htmls/css/rtDialog.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="pages/htmls/css/rtGuide.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="pages/htmls/css/rtMask.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<script type="text/javascript" src="pages/htmls/js/jquery-2.0.3.min.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/htmls/js/nd.jq.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/htmls/js/iscroll.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/htmls/js/common.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/htmls/js/jquery.rt.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/htmls/js/jquery.rt.common.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/htmls/js/jquery.rt.util.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/htmls/js/jquery.rt.parse.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/htmls/js/jquery.rt.rtMask.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/htmls/js/jquery.rt.rtDialog.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/htmls/js/jquery.rt.rtGuide.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="resources/jquery/jquery.base64.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/htmls/js/scheme_501001.js?v=v1.0.9_20150005"></script>  
+
+<script>
+var productScheme = function(){
+	var defaults = {
+			global : schemeCommon.getGlobal()
+	};
+	function initToolbar() {
+		/* if (defaults.global.pTransmitId == "0") {//企业用户
+			$('#shareBtn').removeAttr('href');
+			$('#reserveBtn').removeAttr('href');
+		} else {
+			//var oAuthUrl = $('#oAuthBtn').attr('href') + "?userCrossId=" + schemeCommon.getOCookie();
+			var reserveUrl = $('#reserveBtn').attr('href') + "?schemeId=" + defaults.global.schemeId + "&popularizeId=" + defaults.global.popularizeId
+					+ "&pTransmitId=" + defaults.global.pTransmitId + "&userCrossId=" + schemeCommon.getOCookie();
+			//$('#oAuthBtn').attr('href', oAuthUrl);   
+			$('#reserveBtn').attr('href', reserveUrl);  
+		} */
+	};
+
+	return {
+		initPage:function(){
+			initToolbar();
+		}
+	};
+}();
+
+$(function() {
+	schemeCommon.onPageReady(function() {
+		productScheme.initPage();
+	}, true, false, false);
+});
+</script> 
+</head>
+
+<body>
+	<input type="hidden" id="scheme_id"	name="scheme_id" value="501001">
+	<input type="hidden" id="scheme_thumbnailurl" name="scheme_thumbnailurl" value="upload/gqsl.jpg">
+	<input type="hidden" id="scheme_summary" name="scheme_summary" value="满满试驾好礼，让你如愿以偿！">
+	<input type="hidden" id="scheme_title" name="scheme_title" value="你的心愿是？">
+	
+	<div class="wrap" id="wrap">
+		<div class="soundSwich" id="soundSwich">
+			<span></span>
+			<audio id="audio1" src="pages/htmls/audio/1_all.mp3" autoplay="autoplay" loop="loop"></audio>
+			<!-- <audio id="audio2" src="audio/2.mp3" loop="true"></audio> -->
+		</div>
+
+		<div class="page p1" id="page1">
+			<div class="txt1"></div>
+			<div class="txt2"></div>
+			<div class="box">
+				<div class="mask"></div>
+				<div class="hand1"></div>
+				<div class="hand2"></div>
+				<div class="hand3"></div>
+			</div>
+			<div class="swipeTip"></div>
+		</div>
+
+		<div class="page p2" id="page2">
+			<div class="txt1"></div>
+			<div class="txt2"></div>
+			<div class="box">
+				<div class="mask"></div>
+				<div class="mask2"></div>
+				<div class="hand1"></div>
+				<div class="hand2"></div>
+				<div class="car"></div>
+			</div>
+			<div class="swipeTip"></div>
+		</div>
+
+		<div class="page p3" id="page3">
+			<div class="txt1"></div>
+			<div class="txt2"></div>
+			<div class="box">
+				<div class="mask"></div>
+				<div class="mask2"></div>
+				<div class="car"></div>
+				<div class="bg"></div>
+				<div class="door1"></div>
+				<div class="door2"></div>
+				<div class="parents"></div>
+			</div>
+			<div class="swipeTip"></div>
+		</div>
+
+		<div class="page p4" id="page4">
+			<div class="bg"><div class="txt"></div></div>
+			<div class="txt1"></div>
+			<div class="box">
+				<div class="mask"></div>
+				<div class="deng"></div>
+				<div class="hand"></div>
+			</div>
+		</div>
+
+		<div class="page p5" id="page5">
+			<div class="logo"></div>
+			<div class="title"></div>
+			<div class="txt"></div>
+			<div class="pop"></div>
+			<div class="pop2"></div>
+			<div class="deng"></div>
+			<div class="swipeTip"></div>
+		</div>
+
+		<div class="page p6" id="page6">
+			<div class="inner">
+				<div class="t">
+					<div class="logo"></div>
+				</div>
+				<div class="scroll" id="scroll">
+					<div class="in">
+						<img src="pages/htmls/images/p6_txt.png" />
+						<a href="javascript:void(0);" onclick="schemeCommon.saveWishRecord();" class="xuyuan"></a>
+						<img src="pages/htmls/images/p6_txt2.png" />
+						<a onclick="schemeCommon.wantLottery();" class="choujiang"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="rt_guide" data-role="rtGuide" data-options="{guideImg:'resources/sas/img/guide/shareBonus.png'}"></div>
+	<div id="shareSuccessDialog" data-role="rtDialog" style="z-index: 999">
+		<div data-role="rtDialog-content" style="padding-top: 70px;">
+			<span id="dialog_content"></span>
+		</div>  
+		<div data-role="rtDialog-foot">
+			<input type="button" data-role="rtDialog-cancelButton" value="取消" />
+			<input type="button" data-role="rtDialog-okButton"   value="去抽奖" />
+		</div>
+	</div>
+</body>
+</html>

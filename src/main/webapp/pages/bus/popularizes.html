@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>我要推广</title>
+<base href="../../" />
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=medium-dpi" >
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/icons.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="pages/bus/css/popularizes.css?v=v1.0.9_20150005" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/jquery/jquery.base64.js"></script>
+<script type="text/javascript" src="resources/artTemplate/artTemplate.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/bus/js/popularizes.js?v=v1.0.9_20150005"></script>
+
+<script id="busPopularizes_list" type="text/template">
+{{each busPopularizes as p i}}
+	<div class="list-item list-item-active border-shadow my-pop-item" onclick="popularize.gotoDetail('{{p.proProductScheme.schemeId}}','{{p.popularizeId}}','{{i}}')">
+		<div class="layout-center my-center-div">
+			<div class="pro-title div-text-online font-title-color font-size-l">{{p.proProductScheme.title}}</div>
+			<div class="div-hr"></div>
+			<div class="list-contain-item my-context-item">
+				<img class="pop-img" src="resources/{{p.proProductScheme.thumbnailUrl}}">
+				<div class="layout-center">
+					{{if p.proProductScheme.endTime}}
+						<div class="pro-endtime div-text-online font-datetime-color font-size-t">截止日期：{{p.proProductScheme.endTime.substring(0,10)}}</div>
+					{{/if}}
+					<div class="pro-info div-text-wrap font-lable-color font-size-s">{{p.proProductScheme.rewardInfo}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="btn-list-item-right my-icon-div">
+			<div class="btn-item-jump-color font-size-l icon-pop-jump"></div>
+		</div>
+	</div>
+{{/each}}
+</script>
+</head>
+
+<body>
+<div class="page-full-screen">
+	<div  class="page-container font-family-heiti">
+		<div id="no_products_tips" class="list-no-data font-size-l">暂无产品！</div>
+		<div id="content" class="list-has-data my-pop-lists"></div>
+	</div>
+</div>
+</body>
+</html>

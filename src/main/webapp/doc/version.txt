@@ -1,0 +1,13 @@
+替换JS 正则表达式 ： (^\s*<\s*script.*\s*src\s*=\s*")(.*?)(\?v=.*)?(".*>\s*</script>\s*$)
+替换CSS正则表达式：  (^\s*<\s*link.*\s*href\s*=\s*")(.*?)(\?v=.*)?(".*/\s*>\s*$)
+$1$2?v=1.0.0_20141202$4
+
+
+替换步骤：
+1、选中项目
+2、elipse中按下ctrl+H打开Search，找到File Search
+3、将 正则表达式复制至Containing text 右边选中Regular Expression
+4、File name pattern中输入*.html,*.jsp
+5、scope 选择 working set ,new 一个要操作的项目
+6、点击Replace按钮，With中复制第三行内容，版本号自己改，选择Regular Expression，点击OK完成版本号替换
+

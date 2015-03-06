@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>抽奖</title>
+<base href="../../" />
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=medium-dpi" >
+<link type="text/css" rel="stylesheet" href="resources/rt/theme/default/rtAll.min.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="pages/lottery/css/lottery.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/humane/humane/custom.css" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/rt/jquery.rt.all.min.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/artTemplate/artTemplate.js"></script>
+<script type="text/javascript" src="resources/jquery/jquery.base64.js"></script>
+<script type="text/javascript" src="resources/humane/humane.min.js"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/lottery/js/rotate.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/lottery/js/lottery.js?v=v1.0.9_20150005"></script>
+
+<script type="text/template" id="get_prize_template"> 
+	<tr><th>序号</th><th>中奖金额</th><th>中奖时间</th></tr>
+	{{if userRecord != null}}
+		{{ each userRecord as uR i }}
+			<tr><td>{{ i+1 }}</td><td>{{uR.lotteryCash}}</td><td>{{uR.lotteryTime}}</td></tr>
+		{{ /each }}
+	{{else}}
+		<tr><td colspan='3'>您还未中奖~</td></tr>
+	{{/if}}
+</script>
+
+<script type="text/template" id="history_prize_template"> 
+	<tr><th>中奖金额</th><th>中奖人员</th><th>组织</th><th>中奖时间</th></tr>
+	{{if deptRecord != null}}
+		{{ each deptRecord as dR i }}
+			<tr><td>{{dR.lotteryCash}}</td><td>{{dR.name}}</td><td>{{dR.deptName}}</td><td>{{dR.lotteryTime}}</td></tr>
+		{{ /each }}
+	{{else}}
+		<tr><td colspan='4'>无中奖记录~</td></tr>
+	{{/if}}
+</script>
+
+</head>
+<body>
+	<div id="page" style="display: none;" class="page-full-screen">
+		<div class="page-container font-family-heiti font-size-t my-page-container">
+			<img id="lottery-bg" class="lottery-bg-img" src="resources/sas/img/lottery/lottery_bg.jpg"/>
+			<img id="invite_friend" class="invite-img" src="resources/sas/img/lottery/invite.png" onclick="lottery.invite();"/>
+			
+			<div id="lottery_div" class="my-lottery-div">
+				<img id="turntable" class="turntable-img" src="resources/sas/img/lottery/turntable.png" />
+				<img id="pointer" class="pointer-img" src="resources/sas/img/lottery/pointer.png" />
+				<input id="btn_start" type="button" class="my-btn-start" onclick="lottery.lottery();"/>
+	        	<div id="lottery_num" class="lottery-num-div">可抽 <span id="lottery_num_span" class="lottery-num-span">5</span> 次</div>
+			</div>
+			
+			<div class="my-tables-div">
+				<div id="get_prize" class="get-prize-div">
+					<span class="font-size-s title-span">我已获得的奖品</span><br>
+					<table id="get_prize_table" class="table" rules=all></table>
+				</div>
+				
+				<div id="history_prize" class="history-prize-div">
+					<span class="font-size-s title-span">历史中奖结果</span><br>
+					<table id="history_prize_table" class="table" rules=all></table>
+				</div>
+				
+				<div class="remark-div">
+					<table class="table" rules=all>
+						<tr><th>抽奖活动介绍</th></tr>
+						<tr><td>
+							<div>• 抽奖条件：用户加入【北京汽车】全员营销活动，即获得一次抽奖机会，每成功邀请一个朋友即增加一次抽奖机会。</div>
+							<div>• 抽奖时间：在抽奖活动结束（累计1000次抽奖）前，拥有抽奖机会的用户可随时抽奖。</div>
+							<div>• 奖金发放：抽奖所得金额以红包形式发放。</div>
+						</td></tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="dialog" data-role="rtDialog" >
+		<div data-role="rtDialog-content" class="my-dialog-content">
+			<div id="dialog_cotent"></div>
+		</div>  
+		<div data-role="rtDialog-foot">
+			<input id="dialog_btn" type="button" data-role="rtDialog-cancelButton" class="my-dialog-btn" value="好" />
+		</div>  
+	</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>红包任务</title>
+<base href="../../" />
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=medium-dpi" >
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<style>
+.bonus-task-img {
+	width: 80%; 
+	margin-top: 66px; 
+	position: relative; 
+	left: 10%;
+}
+
+.my-btn-div {
+	margin-top: 42px;
+	margin-bottom: 12px;
+}
+
+.btn-send  {
+	padding: 12px;
+	font-size: 19px;
+	color: #fff;
+	border-width: 0;
+	border-radius: 6px;
+	outline: none;
+	-webkit-appearance: none;
+}
+
+.btn-send {
+	background-color: #cd4f50 !important;
+}
+
+.btn-send:active {
+	background-color: #d96768 !important;
+}
+
+.my-btn {
+	width: 75%;
+	margin: 0px auto !important;
+	text-decoration: none;
+	text-align: center;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.my-remark-div {
+	text-align: center;
+}
+</style>
+
+<script>
+$(function(){
+	weixin.config({
+        debug: false,
+        jsApiList: ['hideOptionMenu','showOptionMenu']
+    });
+	weixin.ready(function () {
+		weixin.hideOptionMenu();
+	});
+});
+</script>
+</head>
+
+<body>
+	<div id="page" class="page-full-screen">
+		<div class="page-container font-family-heiti">
+			<img src="resources/sas/img/bonus_task.png" class="bonus-task-img"/>
+			<div class="list-contain-center-item my-btn-div">
+				<div class="layout-center">  
+					<a class="btn-send my-btn" href="bus/popularize/init.do">&nbsp;&nbsp;&nbsp;&nbsp;转发&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				</div> 
+				<div class="layout-center">
+					<a class="btn-positive my-btn" href="sys/invitation/init.do">邀请好友</a>
+				</div> 
+			</div>
+			<div class="font-lable-color font-size-t my-remark-div">达到两个条件，50元现金红包即刻到账！</div>
+		</div>
+	</div>
+</body>
+</html>

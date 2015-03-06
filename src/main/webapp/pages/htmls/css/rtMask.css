@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+.rt-mask {
+	position: absolute;
+	z-index: 998;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	opacity: 0.3;
+	filter: Alpha(opacity = 30);
+	background: #000
+}
+
+.rt-mask-hide {
+	display: none;
+}
+
+.rt-mask-show {
+	display: block;
+}

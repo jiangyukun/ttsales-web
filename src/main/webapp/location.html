@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+</style>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1>操作方法：</h1>
+			<h1>1.请确认你此时此刻人在对应店里。</h1>
+			<h1>2.点击后请允许获取地理位置。</h1>
+			<h1>3.如无法获取，请检查手机定位和微信定位功能是否开启。</h1>
+			<h1>4.实在不行，请尝试他人的手机。</h1>
+		</div>
+		<div id="content">
+			<h1 id="demo"></h1>
+			<h1 id="demo2"></h1>
+			<button style="width: 300px;height: 200px;font-size:40px;margin:auto;" onclick="getLocation()">点这里</button>
+			<script> 
+				var x = document.getElementById("demo");
+				var y = document.getElementById("demo2");
+				function getLocation() {
+					if (navigator.geolocation) {
+						navigator.geolocation.getCurrentPosition(showPosition,
+								showError);
+					} else {
+						x.innerHTML = "Geolocation is not supported by this browser.";
+					}
+				}
+				function showPosition(position) {
+					
+					var lat1= parseInt(position.coords.latitude);
+					var lat2= parseInt((position.coords.latitude-lat1)*60);
+					var lat3= ((position.coords.latitude-lat1)*60-lat2)*60;
+					
+					var lon1= parseInt(position.coords.longitude);
+					var lon2= parseInt((position.coords.longitude-lon1)*60);
+					var lon3= ((position.coords.longitude-lon1)*60-lon2)*60;					
+								
+					y.innerHTML = "<br/><br/>纬度: " + position.coords.latitude
+					+ "<br />经度: " + position.coords.longitude
+					+"<br/>请将经度，纬度数据准确无误的记录到表格中。<br/><br/>";
+				}
+				function showError(error) {
+					switch (error.code) {
+					case error.PERMISSION_DENIED:
+						x.innerHTML = "User denied the request for Geolocation."
+						break;
+					case error.POSITION_UNAVAILABLE:
+ 						break;
+					case error.TIMEOUT:
+						x.innerHTML = "The request to get user location timed out."
+						break;
+					case error.UNKNOWN_ERROR:
+						x.innerHTML = "An unknown error occurred."
+						break;
+					}
+				}
+
+				function Rad(d) {
+					return d * Math.PI / 180.0;//经纬度转换成三角函数中度分表形式。
+				}
+				//计算距离，参数分别为第一点的纬度，经度；第二点的纬度，经度
+				function GetDistance(lat1, lng1, lat2, lng2) {
+
+					var radLat1 = Rad(lat1);
+					var radLat2 = Rad(lat2);
+					var a = radLat1 - radLat2;
+					var b = Rad(lng1) - Rad(lng2);
+					var s = 2 * Math.asin(Math.sqrt(Math
+							.pow(Math.sin(a / 2), 2)
+							+ Math.cos(radLat1)
+							* Math.cos(radLat2)
+							* Math.pow(Math.sin(b / 2), 2)));
+					s = s * 6378.137;// EARTH_RADIUS;
+					s = Math.round(s * 10000) / 10000; //输出为公里
+					//s=s.toFixed(4);
+					return s;
+				}
+			</script>
+		</div>
+		<div id="footer"></div>
+	</div>
+</body>
+</html>

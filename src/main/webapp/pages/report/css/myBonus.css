@@ -1,0 +1,180 @@
+@CHARSET "UTF-8";
+
+.not-found-any-package {
+	width: 90%;
+	text-align: left;
+	margin: 10% auto;
+	color: #4d4d4d;
+}
+
+.red-package-header-container {
+	height: 88px;
+	background: #cd4f50;
+	color: #fff;
+	margin: 8px;
+	border-radius: 4px;
+	position: relative;
+}
+
+.red-package-less {
+	height: 60px;
+}
+
+.cash-balance-div {
+	float: left;
+	max-width: 70%;
+	min-width: 70%;
+	height: 100%;
+}
+
+.cash-out-div {
+	float: right;
+	max-width: 24%;
+	min-width: 24%;
+	height: 100%;
+}
+
+.cash-balance {
+	display: block;
+	height: 25px;
+	float: left;
+	margin-top: 18px;
+}
+
+.rmb {
+	margin: 10px 8px;
+	float: left;
+	height: 40px;
+}
+
+.cash-out-btn {
+	height: 25px;
+	float: right;
+	margin: 18px 8px;
+	width: 60px;
+	background: #fff;
+	border-radius: 2px;
+	outline: none;
+	color: #cd4f50;
+	border: none;
+	-webkit-appearance: none;
+}
+
+.cash-out-btn:disabled {
+	background-color: rgba(155, 155, 155, 0.7) !important;
+	color: #fff !important;
+}
+
+.red-package-amass {
+	position: absolute;
+	height: 16px;
+	width: 100%;
+	bottom: 8px;
+ }
+ 
+.amass_earning {
+	margin-left: 8px;
+	float: left;
+	height: 16px;
+}
+ 
+.amass_cash_out {
+	margin-right: 8px;
+	float: right;
+}
+ 
+.red-package-body {
+	width: 100%;
+	margin-top: 20px;
+	background: #f0f0f6;
+	position: relative;
+}
+ 
+.red-package-list-header {
+	height: 40px;
+	display: -webkit-box;
+	-webkit-box-align: center;
+}
+
+.package-detail-div {
+	margin-left: 8px;
+	-webkit-box-flex: 2;
+}
+
+.package-detail-word {
+	display: block;
+	height: 22px;
+	width: 100%;
+	margin: 9px;
+}
+
+.month-select-div {
+	-webkit-box-flex: 5;
+}
+
+.month-select-div > select {
+	height: 40px;
+	direction: rtl;
+}
+
+.my-icon {
+	margin-top: 3px;
+	margin-right: 8px;
+	margin-left: 5px;
+}
+
+.red-package-list-body {
+	overflow: auto;
+}
+
+.red-package-list-item {
+	width: 100%;
+	height: 46px;
+	margin-bottom: 1px;
+	background: #c9c9c9;
+}
+
+.no-package-item {
+	width: 100%;
+	text-align: center;
+	padding: 13px 0;
+}
+
+.red-package-list-item-left {
+	max-width: 62%;
+	min-width: 62%;
+	float: left;
+	padding-left: 8px;
+	padding-top: 7px;
+	overflow: hidden;
+	height: 31px;
+}
+
+.reward_reason {
+	margin-top: 3px;
+	height: 43px;
+}
+
+.red-package-list-item-right {
+	max-width: 23%;
+	min-width: 23%;
+	padding-right: 8px;
+	float: right;
+}
+
+.red-package-list-item-right label {
+	width: 100%;
+	text-align: right;
+	float: left;
+}
+
+.reward_cash {
+	color: #cd4f50;
+	margin-top: 4px;
+}
+
+.reward_time {
+	color: #787878;
+	font-size: 10px;
+	margin-top: 4px;
+}

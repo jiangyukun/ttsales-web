@@ -1,0 +1,182 @@
+/**
+ * Copyright (c) 2013 RATANSOFT.All rights reserved.
+ * @filename RbacMenuMB.java
+ * @package psychlab.web.rbac
+ * @author dandyzheng
+ * @date 2013-3-28
+ */
+package psychlab.core.gen;
+
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
+
+import org.primefaces.context.RequestContext;
+
+import psychlab.core.util.StringUtil;
+import psychlab.domain.RbacProp;
+import psychlab.service.rbac.RbacPropService;
+import psychlab.web.common.AbstractClassBaseMB;
+
+
+/**
+ * 
+ * @author dandyzheng
+ * 
+ */
+@ManagedBean(name = "rbacProp2MB")
+@ViewScoped
+public class RbacProp2MB extends AbstractClassBaseMB {
+	private static final long serialVersionUID = 1L;
+	
+	
+	@ManagedProperty("#{rbacPropService}")
+	private RbacPropService rbacPropService;
+
+	private RbacProp queryRbacProp;
+	private RbacProp selectedRbacProp;
+	private int selectedIndex = 0;
+	private List<RbacProp> rbacProps;
+	
+	
+	public RbacProp2MB() {
+		System.out.println("init RbacPropMB");
+	}
+
+	@Override
+	public void initPage() {
+		if (queryRbacProp == null) {
+			queryRbacProp = new RbacProp();
+		}
+		if(selectedRbacProp == null){
+			selectedRbacProp = new RbacProp();
+		}
+		exeQuery();
+	}
+	
+
+	public void preQuery() {
+		if (queryRbacProp == null) {
+			queryRbacProp = new RbacProp();
+		}
+	}
+
+	public void exeQuery() {
+		preQuery();
+		rbacProps = rbacPropService.getAllRbacProps();
+		aftQuery();
+	}
+	
+	public void aftQuery(){
+		selectedIndex = 0;
+	}
+	
+	public void preAdd(){
+		if(selectedRbacProp == null || !StringUtil.isEmpty(selectedRbacProp.getPropId())){
+			selectedRbacProp = new RbacProp();
+		}
+	}
+	
+	public void exeAdd(){
+		preAdd();
+		this.rbacPropService.saveRbacProp(selectedRbacProp);
+		aftAdd();
+	}
+	
+	public void aftAdd(){
+		this.rbacProps.add(0,selectedRbacProp);
+		selectedRbacProp = new RbacProp();
+	}
+	
+	public void preUpdate(){
+		selectedIndex =  this.rbacProps.indexOf(selectedRbacProp);
+	}
+	
+	public void exeUpdate(){
+		preUpdate();
+		this.rbacPropService.editRbacProp(selectedRbacProp);
+		aftUpdate();
+	}
+	
+	public void aftUpdate(){
+		this.rbacProps.remove(selectedIndex);
+		this.rbacProps.add(selectedIndex,selectedRbacProp);
+		selectedIndex = 0;
+	}
+	
+	public void saveOrUpdate(){
+		if(!validate()){
+			return;
+		}
+		if(!StringUtil.isEmpty(selectedRbacProp.getPropId())){
+			this.exeUpdate();
+		}else{
+			this.exeAdd();
+		}
+	}
+	
+	public void preRemove(){
+		selectedIndex =  this.rbacProps.indexOf(selectedRbacProp);
+	}
+	
+	public void exeRemove(){
+		preRemove();
+		this.rbacPropService.removeRbacProp(selectedRbacProp);
+		aftRemove();
+	}
+	
+	public void aftRemove(){
+		this.rbacProps.remove(selectedIndex);
+	}
+	
+	public void reset(){
+		this.selectedIndex = 0;
+		this.selectedRbacProp = new RbacProp();
+	}
+	
+	
+	private boolean validate() {
+		boolean flag = true;
+		if(true){
+			
+		}
+		RequestContext rc = RequestContext.getCurrentInstance();
+		rc.addCallbackParam("isSuccessed", flag);
+		return flag;
+	}
+
+	public RbacPropService getRbacPropService() {
+		return rbacPropService;
+	}
+
+	public void setRbacPropService(RbacPropService rbacPropService) {
+		this.rbacPropService = rbacPropService;
+	}
+
+	public RbacProp getQueryRbacProp() {
+		return queryRbacProp;
+	}
+
+	public void setQueryRbacProp(RbacProp queryRbacProp) {
+		this.queryRbacProp = queryRbacProp;
+	}
+
+	public List<RbacProp> getRbacProps() {
+		return rbacProps;
+	}
+
+	public void setRbacProps(List<RbacProp> rbacProps) {
+		this.rbacProps = rbacProps;
+	}
+
+	public RbacProp getSelectedRbacProp() {
+		return selectedRbacProp;
+	}
+
+	public void setSelectedRbacProp(RbacProp selectedRbacProp) {
+		this.selectedRbacProp = selectedRbacProp;
+	}
+
+}

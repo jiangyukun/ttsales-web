@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- HTML文件命名规则：ProductScheme-<SchemeID>.html-->
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- title命名规则：<产品名称> -->
+<title>北汽绅宝D50，感恩大回馈</title>  
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=medium-dpi" >
+<base href="../../" />
+<link type="text/css" rel="stylesheet" href="resources/rt/theme/default/rtAll.min.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/humane/humane/custom.css" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/rt/jquery.rt.all.min.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="resources/jquery/jquery.base64.js"></script>
+<script type="text/javascript" src="resources/humane/humane.min.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<style>   
+body {
+	overflow: auto; 
+	-webkit-overflow-scrolling: touch;
+	background-image: url('resources/sas/img/scheme/101001/d501.jpg'); 
+	background-size:cover;
+	background-repeat: no-repeat;
+}
+
+.my-head {
+	background-color: #cd4f50 !important;
+}
+
+.my-head-texts {
+	padding: 5px 10px 0px 10px; 
+}
+
+.my-head-span-div {
+	padding-left:20px; 
+	text-indent:-20px;
+}
+
+.font-black-color {
+	color: black !important;
+}
+
+.my-btn-div {
+	position: fixed;
+	bottom: 10px;
+}
+
+.my-btn {
+	width: 70%;
+	margin: 0px auto !important;
+	text-decoration: none;
+	text-align: center;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.font-size-xxxl {
+	font-size: 40px;
+}
+</style>
+<script type="text/javascript">
+$(function(){
+	var bgWidth = $('#bg_width').val();
+		var bgHeight = $('#bg_height').val(); 
+		var textHeight = $('#head_text').outerHeight();
+	$('body').css('background-position','0 '+textHeight+'px');
+	var docWidth = $(document).width();
+	var docHeight = docWidth/bgWidth*bgHeight+textHeight;
+	$('body').css('height',docHeight); 
+	$('body').css('width',docWidth);
+ });
+</script>
+</head>
+ 
+<body>
+	<!-- 以下标签由生成该html时根据产品推广文案写入 -->   
+	<input type="hidden" id="scheme_id"	name="scheme_id" value="101001">
+	<input type="hidden" id="scheme_thumbnailurl" name="scheme_thumbnailurl" value="upload/sbd50.jpg">
+	<input type="hidden" id="scheme_summary" name="scheme_summary" value="感恩回馈，多重好礼，带您领取，让您HOLD不住！">
+	<input type="hidden" id="scheme_title" name="scheme_title" value="北汽绅宝D50，感恩大回馈">
+	<input type="hidden" id="bg_height" name="bg_height" value="1363">
+	<input type="hidden" id="bg_width" name="bg_width" value="640">
+	
+	<div id="head_text" data-role="header" class="my-head" >
+		<div id="welcome_text1" class="font-size-xxxl font-btn-color-white my-head-texts">
+				<div class="my-head-span-div">本活动已结束！</div>
+		</div>
+		<div id="welcome_text2" class="ui-hidden-accessible">
+		</div>
+	</div>
+	<div id="toolbar_region" class="ui-hidden-accessible list-contain-center-item my-btn-div">
+		 
+	</div>
+	<div data-role="rtGuide" data-options="{guideBtn:'#shareBtn',guideImg:'resources/sas/img/guide/shareGuide.png'}"></div>
+
+</body>
+</html>

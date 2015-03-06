@@ -1,0 +1,65 @@
+<div class='register_relative_div'>
+							<img id='patient_img' class='register_patient_img'
+								src='resources/sas/img/select/select_confirm.png' onclick="radioBox(id);" />
+							<div class='register_relative' onclick="radioBox('patient_img');">先生</div>
+							<img id='friend_img' class='register_friend_img'
+								src='resources/sas/img/select/select_cancel.png' onclick='radioBox(id);' />
+							<div class='register_relative' onclick="radioBox('friend_img');">女士</div>
+							<input id='relative_input' type="hidden" value='1' />
+						</div>
+
+
+
+
+						function radioBox(imgName){
+	imgName = '#'+imgName;
+	if('resources/sas/img/select/select_confirm.png'==$(imgName).attr('src')){
+		return;
+	}else{
+		$(imgName).attr('src','resources/sas/img/select/select_confirm.png');
+		if('#patient_img'==imgName){
+			$('#relative_input').val('1');
+			$('#friend_img').attr('src','resources/sas/img/select/select_cancel.png');
+		}else{
+			$('#relative_input').val('3');
+			$('#patient_img').attr('src','resources/sas/img/select/select_cancel.png');
+		}
+	}
+}
+
+
+.register_relative_div{
+    /* margin-top: 0.5rem; */
+    display: -webkit-box;
+	display: -webkit-flex;
+    display: flex;
+    vertical-align: middle;
+    
+}
+.register_patient_img{
+	/* background-color: #f0f0f6; */
+	height: 1em;
+	width: 1em;
+	margin-top: 0.65em;
+	margin-right: 0.2em;
+	/* margin-left: 10rem; */
+}
+.register_relative_div{
+   /*  margin-top: 0.5rem; */
+   /*   font-size:1.75rem; */
+    text-align:center;
+    display: -webkit-box;
+	display: -webkit-flex;
+    display: flex;
+    vertical-align: middle;
+    
+}
+.register_friend_img{
+	/* background-color: #f0f0f6; */
+	height: 1em;
+	width: 1em;
+	margin-top: 0.65em;
+	margin-left: 1rem;
+	margin-right: 0.2em;
+	
+}

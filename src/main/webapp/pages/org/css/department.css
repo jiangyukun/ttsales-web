@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.dpt-container {
+    margin: 20px;
+}
+
+.dpt-add-area {
+    font-size: 18px;
+}
+
+.dpt-add-area input, .dpt-add-area .dpt-tip {
+    position: absolute;
+}
+
+.dpt-input-tip {
+    display: none;
+}
+
+.dpt-add-area ul {
+
+}
+
+.dpt-btns {
+    bottom: 10px;
+    width: 400px;
+    text-align: center;
+}
+
+.dpt-btn {
+    float: right;
+    margin: 10px 30px;
+}
+
+.dpt-btns:before, .dpt-btns:after {
+    clear: both;
+    display: table;
+    content: " ";
+}

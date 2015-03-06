@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>邀请同事</title>
+<base href="../../">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=medium-dpi" >
+<link type="text/css" rel="stylesheet" href="resources/rt/theme/default/rtAll.min.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/humane/humane/custom.css" />
+<link type="text/css" rel="stylesheet" href="pages/sys/css/join.css?v=v1.0.9_20150005" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/rt/jquery.rt.all.min.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/humane/humane.min.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/sys/js/join.js?v=v1.0.9_20150005"></script>
+</head>
+<style>
+#rt-guide-img{
+	margin-top: 20px;   
+}
+</style>
+<body>
+	<div class="page-full-screen" style="display: none;">
+		<div  class="page-container font-family-heiti my-container-top">
+			<div class="list-has-data my-list">
+				<div class="list-item my-join-item">
+					<img class="name-img" src="resources/sas/img/name.png">
+					<div class="layout-right my-input-div">
+						<input type="text" name="iuserName" id="iuserName" value=""  class="input font-lable-color font-size-l" placeholder="请输入好友的姓名"/>
+					</div>
+				</div>
+				<div class="div-hr my-hr"></div>
+				<div class="list-item my-join-item">
+					<img class="weixin-img" src="resources/sas/img/weixin.png">
+					<div class="layout-right my-input-div">
+						<input type="text" name="iweixinid" id="iweixinid" maxlength="40" class="input font-lable-color font-size-l" placeholder="好友的微信号/手机号"/>
+					</div>
+				</div>
+			</div>
+			<div class="my-checkbox-group-div">
+				<div class="my-checkbox-div">
+					<input id="join_store" type="checkbox" checked="checked" data-role="rtCheckbox" class="my-checkbox"/>
+					<label class="font-input-aft-color font-size-s my-checkbox-lable">属于本店接待人员</label>
+				</div>
+				<div style="display: none;" class="my-checkbox-div">
+					<input id="share_product" type="checkbox" checked="checked" data-role="rtCheckbox" class="my-checkbox"/>
+					<label class="font-input-aft-color font-size-s my-checkbox-lable">共享我的产品</label>
+				</div>
+			</div>
+			<div style="height:35px;"></div>
+			<input class="btn-positive" type="button" onclick="reserve.onInvite();" value="邀请同事" />
+		</div>
+	</div>
+</body>
+</html>

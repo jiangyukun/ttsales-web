@@ -1,0 +1,94 @@
+@IMPORT url("animations.css");
+html, body { height: 100%; }
+* { margin: 0; padding: 0; }  
+
+.pt-perspective {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	-webkit-perspective: 1200px;
+	-moz-perspective: 1200px;
+	perspective: 1200px;
+}
+
+.pt-page {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+	overflow: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.pt-page-current,
+.no-js .pt-page {
+	visibility: visible;
+	z-index: 1;
+}
+
+.no-js body {
+	overflow: auto;
+}
+
+.pt-page-ontop {
+	z-index: 999;
+}
+
+
+/* .pt-message {
+	display: none;
+	position: absolute;
+	z-index: 99999;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: #da475c;
+	color: #fff;
+	text-align: center;
+} */
+
+
+.sas-page-header {
+	height: auto;
+	background-color: #f9f9f9;
+	border-color: #bbb;
+	color: #333;
+	text-shadow: 0 1px 0 #f3f3f3;
+	width: 100%;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	text-align: center;
+}
+
+.sas-page-content{
+	background-color: #ffffff;
+	position: relative;
+	clear: both;
+	width: 100%;
+	height:auto;
+	overflow: hidden;
+}
+
+.sas-page-footer {
+	background-color: #f9f9f9;
+	border-color: #bbb;
+	color: #333;
+	text-shadow: 0 1px 0 #f3f3f3;
+	width: 100%;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	clear: both;
+	bottom: 0;
+}
+
+

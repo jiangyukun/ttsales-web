@@ -1,0 +1,39 @@
+.my-pop-lists{
+	padding: 12px 8px;
+}
+
+.my-pop-item {
+	height: 101px;
+	margin-bottom: 7.5px;
+}
+
+.my-context-item {
+	padding-top: 4px;
+}
+
+.my-center-div {
+	padding: 4px;
+}
+
+.pop-img {
+	width: 67px;
+	height: 67px;
+	padding-right: 7px;
+}
+
+.pro-title {
+	padding-bottom: 1px;
+}
+
+.pro-endtime{
+	padding-top: 3px;
+}
+
+.pro-info {
+	height: 45px;
+	padding-top: 3px;
+}
+
+.my-icon-div {
+	padding: 4px 6px;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- HTML文件命名规则：ProductScheme-<SchemeID>.html-->
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- title命名规则：<产品名称> -->
+<title>雪佛兰-科帕奇</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="../../resources/humane/humane/custom.css" />
+<script type="text/javascript" src="../../resources/jquery/jquery-1.11.1.min.js"></script>
+</head>
+<style>
+</style>
+<script>
+	var imgUrl = "图片地址";
+	var lineLink = "网址";
+	var descContent = '爱在五月，\n\n妈咪爱1+1亲子健康之旅开启全国行首站----重庆站妈咪爱活性益生菌';
+	var shareTitle = '标题';
+	var appid = '';
+
+	function shareFriend() {
+		alert(111);
+		
+	}
+	function shareTimeline() {
+		WeixinJSBridge.invoke('shareTimeline', {
+			"img_url" : imgUrl,
+			"img_width" : "200",
+			"img_height" : "200",
+			"link" : lineLink,
+			"desc" : descContent,
+			"title" : shareTitle
+		}, function(res) {
+			alert(res);
+			//_report('timeline', res.err_msg);
+		});
+	}
+	function shareWeibo() {
+		WeixinJSBridge.invoke('shareWeibo', {
+			"content" : descContent,
+			"url" : lineLink,
+		}, function(res) {
+			alert(res);
+			//_report('weibo', res.err_msg);
+		});
+	}
+	// 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		// 发送给好友
+		WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+			alert(123);
+			shareFriend();
+		});
+		// 分享到朋友圈
+		WeixinJSBridge.on('menu:share:timeline', function(argv) {
+			shareTimeline();
+		});
+		// 分享到微博
+		WeixinJSBridge.on('menu:share:weibo', function(argv) {
+			shareWeibo();
+		});
+	}, false);
+</script>
+<body>
+	<!-- 以下标签由生成该html时根据产品推广文案写入 -->
+	<input type="hidden" id="scheme_id" name="scheme_id" value="001001">
+	<input type="hidden" id="scheme_thumbnailurl"
+		name="scheme_thumbnailurl" value="upload/xuefulai-thumb.jpg">
+	<input type="hidden" id="scheme_summary" name="scheme_summary"
+		value="人生峰景，雪佛兰邀您一起体验！">
+	<input type="hidden" id="scheme_title" name="scheme_title"
+		value="雪佛兰-科帕奇">
+	<!-- -->
+	<div data-role="page">
+		<div data-role="header">
+			<div id="welcome_text">通过右上角按钮转发，可获得红包奖励，赶快行动吧</div>
+		</div>
+		<!-- 只允许在此div内放置文案内容 -->
+		<div data-role="content">
+			<!-- popularize-content Begin -->
+			<table width="100%">
+				<tr>
+					<td width="5%"></td>
+					<td width="90%" align="left"><img
+						src="../../resources/upload/xuefulai.jpg" width="100%"
+						class="ui-li-thumb">
+						<h2>雪佛兰-科帕奇</h2>
+						<p>人生峰景，雪佛兰邀您一起体验！</p>
+						<p>精彩内容，不容错过！</p></td>
+					<td width="5%"></td>
+				</tr>
+			</table>
+			<!-- popularize-content End -->
+		</div>
+		<div data-role="toolbar" id="toolbar_region"
+			class="ui-hidden-accessible">
+			<table style="width: 100%">
+				<tr>
+					<td id="oAuthBtn_region" align="right"><a id="oAuthBtn"
+						href="../../bus/redPaper/init.do"
+						class="ui-btn ui-btn-inline ui-shadow ui-corner-all"
+						rel="external">申请红包</a></td>
+					<td id="reserve_region" align="left"><a id="reserveBtn"
+						href="../../bus/reserve/init.do"
+						class="ui-btn ui-btn-inline ui-shadow ui-corner-all"
+						rel="external">预约看车</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>我的红包</title>
+<base href="../../">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=medium-dpi" >
+<link type="text/css" rel="stylesheet" href="resources/rt/theme/default/rtAll.min.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/icons.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/humane/humane/custom.css" />
+<link type="text/css" rel="stylesheet" href="pages/report/css/myBonus.css?v=v1.0.9_20150005" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/rt/jquery.rt.all.min.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/artTemplate/artTemplate.js"></script>
+<script type="text/javascript" src="resources/humane/humane.min.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/report/js/myBonus.js?v=v1.0.9_20150005"></script>
+<script id="red-package-balance" type="text/template">
+	<div class="red-package-less">
+		<div class="cash-balance-div">
+			<img class="rmb" src="resources/sas/img/rmb.png">
+			<div class="cash-balance font-size-xl">余额：<span id="balance">{{money.balance}}</span></div>
+		</div>
+		<div class="cash-out-div">
+			<input class="cash-out-btn font-size-m" onclick="myBonus.getMoney();" type="button" value="领取">
+		</div>
+	</div>
+	<div class="red-package-amass font-size-m">
+		<div id="amass_earning" class="amass_earning">累计金额：<span id="income">{{money.income}}</span></div>
+		<div id="amass_cash_out" class="amass_cash_out">累计领取：<span id="outcome">{{money.outcome}}</span></div>
+	</div>
+</script>
+<script id="red_package_select" type="text/template">
+	{{each months as p i}}
+		{{if i == 0}}
+			<option value="{{p.value}}" selected="selected">{{p.key}}</option> 
+		{{/if}}
+		{{if i != 0}}
+			<option value="{{p.value}}">{{p.key}}</option> 
+		{{/if}}
+	{{/each}}
+</script>
+<script id="red_package_item" type="text/template">
+	{{each bonus as b i}}
+		<div class="red-package-list-item">
+			<div class="red-package-list-item-left div-text-wrap font-lable-color font-size-s">
+				{{b.productName}}({{b.bonusName}})
+			</div>
+			<div class="red-package-list-item-right">
+				<label id="reward_cash" class="reward_cash font-size-s">￥{{b.money}}</label>
+				<label id="reward_time" class="reward_time">{{b.createDate}}</label>
+			</div>
+		</div>
+	{{/each}}
+</script>
+<script id="no_red_package" type="text/template">
+	<div class="red-package-list-item">
+		<div class="no-package-item font-lable-color font-size-s">
+			该月份没有红包记录,请继续努力哦~
+		</div>
+	</div>
+</script>
+</head>
+<body>
+	<div class="page-full-screen">
+		<div class="page-container">
+			<div class="red-package-header-container"></div>
+			<div class="red-package-body">
+				<div class="red-package-list-header list-item border-top-bottom font-size-l">
+					<div class="package-detail-div">
+						<label class="font-size-l">红包明细</label>
+					</div>
+					<div class="month-select-div">
+						<select id="select_month" onchange="myBonus.selectMonth();" class="input"></select>
+					</div>
+					<div class="btn-item-jump-color icon-pop-jump my-icon"></div>
+				</div>
+				<div class="red-package-list-body"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

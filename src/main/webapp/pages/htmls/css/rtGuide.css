@@ -1,0 +1,88 @@
+.rt-guide-img {
+	width: 100%;
+	display: none;
+}
+
+/* .rt-guide-hide {
+	position: absolute;
+	display: none;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+} */
+
+#rt-guide-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0;
+	background: rgba(0, 0, 0, 0.8);
+	display: none;
+	z-index: 999;
+}
+
+.rt-guide-anim-fadeIn {
+	animation: rt-guide-fadeIn 0.4s;
+	animation-fill-mode: forwards;
+	-moz-animation: rt-guide-fadeIn 0.4s;
+	-moz-animation-fill-mode: forwards;
+	-webkit-animation: rt-guide-fadeIn 0.4s;
+	-webkit-animation-fill-mode: forwards;
+	-o-animation: rt-guide-fadeIn 0.4s;
+	-o-animation-fill-mode: forwards;
+}
+
+.rt-guide-anim-fadeOut {
+	animation: rt-guide-fadeOut 0.4s;
+	animation-fill-mode: forwards;
+	-moz-animation: rt-guide-fadeOut 0.4s;
+	-moz-animation-fill-mode: forwards;
+	-webkit-animation: rt-guide-fadeOut 0.4s;
+	-webkit-animation-fill-mode: forwards;
+	-o-animation: rt-guide-fadeOut 0.4s;
+	-o-animation-fill-mode: forwards;
+}
+
+@keyframes rt-guide-fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@-moz-keyframes rt-guide-fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@-webkit-keyframes rt-guide-fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@-o-keyframes rt-guide-fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@keyframes rt-guide-fadeOut {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+
+@-moz-keyframes rt-guide-fadeOut {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+
+@-webkit-keyframes rt-guide-fadeOut {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+
+@-o-keyframes rt-guide-fadeOut {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+
+

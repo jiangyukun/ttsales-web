@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>我的同事</title>
+<base href="../../" />
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=medium-dpi" >
+<link type="text/css" rel="stylesheet" href="resources/rt/theme/default/rtAll.min.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="pages/sys/css/myFriends.css?v=v1.0.9_20150005" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/rt/jquery.rt.all.min.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/artTemplate/artTemplate.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/sys/js/myFriends.js?v=v1.0.9_20150005"></script>
+<script id="friend_item" type="text/template">
+	{{each rows as friend i}}
+		<div class="list-item border-bottom friend-item" data-id='{{friend.memberId}}' >	
+			{{if friend.headUrl}}
+					<img class="head-img" src='{{friend.headUrl}}'/>
+				{{else}}
+					<img class="head-img" src='resources/sas/img/no_head_pic.png'/>
+			{{/if}}
+			<div class="layout-center my-center-div"> 
+				<div>
+					{{if friend.gender}}
+						{{if friend.gender=='0'}}
+							<img class="gender-man-img" src='resources/sas/img/man.png'/>
+							{{else}}
+							<img class="gender-female-img" src='resources/sas/img/female.png'/>
+						{{/if}}
+						{{else}}
+							<div class="blank-div"></div>
+					{{/if}}
+					<span class="name-span font-size-l font-title-rf-color">{{friend.name}}</span>
+				</div>
+				<div>
+					<img class="weixin-img" src='resources/sas/img/weixin_small.png'/>
+					<span class="weixin-span font-size-m font-remark-rf-color">
+					{{if friend.mobile}}
+						{{friend.mobile}}
+						{{else}}
+						{{friend.weixin}}
+					{{/if}}
+					</span>
+				</div>
+			</div>
+			{{if friend.subscribeState != 1}}
+				<input id="click_btn{{i}}" data-fname="{{friend.name}}" data-memberid={{friend.memberId}} class="btn-positive my-btn" type="button" value="再次邀请"/>
+			{{/if}}
+			<input class='name-input' type="hidden" value='{{friend.name}}'/>
+		</div>
+	{{/each}}
+</script>
+</head>
+<body class="page-full-screen">		
+	<div  class="page-container">
+		<div  id="no_friends_tips" class="list-no-data font-size-l">暂无好友！</div>
+		<div class="my-friend-list">
+			<div id='friendList' data-role="rtScroll" class="list-has-data"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>邀请函</title>
+<base href="../../">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link type="text/css" rel="stylesheet" href="resources/humane/humane/custom.css" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/humane/humane.min.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<style type="text/css">
+	body, html {
+		margin: 0;
+		padding: 0;
+	}
+	
+	.layer_container {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+	}
+	
+	.tip-msg {
+		color: #FFF;
+		font-size: 14px;
+		font-family: '微软雅黑';
+		padding: 5px 12px;
+		text-align: left;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	
+	.vendor {
+		color: #737373;
+		font-size: 18px;
+		font-family: '微软雅黑';
+		height: 30px;
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+	
+	.layer_background_pure {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-image: -webkit-linear-gradient(bottom, #682829 9%, #8D3838 33%, #C24A4B 91%);
+		background-image: linear-gradient(bottom, #682829 9%, #8D3838 33%, #C24A4B 91%);
+	}
+	
+	#pic_invitation {
+		position: absolute;
+		top: 10%;
+		bottom: 5%;
+		left: 0;
+		right: 0;
+		background-color: transparent;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center center;
+	}
+</style>
+<script type="text/javascript">
+	var surl = '';
+	$(function() {
+		weixin.config({
+	        debug: false,
+	        jsApiList: ['onMenuShareTimeline','hideOptionMenu','hideMenuItems', 'showOptionMenu', 'closeWindow','onMenuShareAppMessage','getNetworkType']
+	    });
+		weixin.ready(function () {
+			weixin.hideOptionMenu();
+			$.ajax({
+				type : 'POST',
+				url : 'sys/invitation/createInviPic.do',
+				data : {
+					fName : $.sas.util.getUrlParam('fName'),
+					inviId: $.sas.util.getUrlParam('inviId')
+				},
+				dataType : 'json',
+				success : function(data, textStatus, jqXHR) {
+					if (data.succ == 'ok' ) {
+						surl = location.origin + data.surl;
+						$('#pic_invitation').css('background-image', 'url("' + data.curl + '")');
+						$('#pic_invitation').bind('click', function() {
+							WeixinJSBridge.invoke("imagePreview",{
+								"urls" : [surl],
+								"current" : surl
+							})
+						});
+					} else {
+						humane.info(data.errMsg || '生成图片失败');
+					}
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+					humane.info('生成图片失败');
+				}
+			});
+		});
+		/*
+		$.sas.weixin.onWeixinPageReady(function() {
+			$.sas.weixin.hideOptionMenu();
+			$.ajax({
+				type : 'POST',
+				url : 'sys/invitation/createInviPic.do',
+				data : {
+					fName : $.sas.util.getUrlParam('fName'),
+					inviId: $.sas.util.getUrlParam('inviId')
+				},
+				dataType : 'json',
+				success : function(data, textStatus, jqXHR) {
+					if (data.succ == 'ok' ) {
+						surl = location.origin + data.surl;
+						$('#pic_invitation').css('background-image', 'url("' + data.curl + '")');
+						$('#pic_invitation').bind('click', function() {
+							WeixinJSBridge.invoke("imagePreview",{
+								"urls" : [surl],
+								"current" : surl
+							})
+						});
+					} else {
+						humane.info(data.errMsg || '生成图片失败');
+					}
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+					humane.info('生成图片失败');
+				}
+			});
+		});
+		*/
+	})
+</script>
+</head>
+<body>
+	<div class="layer_background_pure"></div>
+	<div class="layer_container">
+		<div class="tip-msg">点击打开邀请函图片，再点击微信右上角菜单中的“发送给朋友”，即可邀请同事加入，赶快行动吧！</div>
+		<div id="pic_invitation"></div>
+		<div class="vendor">杭州微车信息科技有限公司</div>
+	</div>
+</body>
+</html>

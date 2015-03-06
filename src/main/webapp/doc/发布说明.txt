@@ -1,0 +1,24 @@
+发布步骤：
+1、修改 Bundle_zh.properties 配置
+   #sas.website=http://uu.ttsales.cn/SASWeb
+   #sas.rbssite=http://uu.ttsales.cn/SASRbs
+   
+2、修改weixin_zh.properties配置
+        启用weixin_zh.properties_release
+        
+3、修改applicationContext.xml配置
+        修改数据源 为 jdbc/sas
+
+4、修改jquery.sas.js 配置
+    appid : "wx835d2880072515a0",公众号ID
+	sasWebWebSite:"http://uu.ttsales.cn/SASWeb", 
+	sasTraWebSite:"http://uu.ttsales.cn/SASTra",
+	sasRbsWebSite:"http://uu.ttsales.cn/SASRbs",
+	isDebug:false
+	
+5、全版本发布
+       修改 SASConstants.SAS_VERSION
+       全局替换上一版本
+       
+6.修改weixin-wrapper.js
+	authentication: 'http://uu.ttsales.cn/SASRbs/weixin/jsSDK/getSign.do'

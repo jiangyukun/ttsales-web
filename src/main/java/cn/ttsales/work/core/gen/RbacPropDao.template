@@ -1,0 +1,109 @@
+/**
+ * Copyright (c) 2014 RATANSFOT.All rights reserved.
+ * @filename RbacPropDao.java
+ * @package psychlab.persistence.rbac
+ * @author dandyzheng
+ * @date 2012-7-27
+ */
+package psychlab.core.gen;
+
+import java.util.List;
+
+import psychlab.domain.RbacProp;
+
+
+
+/**
+ * RbacProp DAO
+ * @author dandyzheng
+ *
+ */
+public interface RbacPropDao {
+	/**
+	 * 保存 RbacProp
+	 * @param rbacProp RbacProp
+	 * @return RbacProp 
+	 * @author dandyzheng
+	 * @date 2013-3-27
+	 * @see
+	 */
+	public RbacProp saveRbacProp(RbacProp rbacProp);
+	
+	/**
+	 * 批量保存RbacProp
+	 * @param rbacProps RbacProps
+	 * @return List<RbacProp>
+	 * @author dandyzheng
+	 * @date 2013-3-27
+	 * @see
+	 */
+	public List<RbacProp> saveRbacProps(List<RbacProp> rbacProps);
+	
+	/**
+	 * 修改RbacProp
+	 * @param rbacProp RbacProp
+	 * @return RbacProp
+	 * @author dandyzheng
+	 * @date 2013-3-27
+	 * @see
+	 */
+	public RbacProp editRbacProp(RbacProp rbacProp);
+	
+	/**
+	 * 批量修改RbacProp
+	 * @param rbacProps RbacProps
+	 * @return List<RbacProp>
+	 * @author dandyzheng
+	 * @date 2013-3-27
+	 * @see
+	 */
+	public List<RbacProp> editRbacProps(List<RbacProp> rbacProps);
+	
+	/**
+	 * 删除RbacProp
+	 * @param RbacProp RbacProp
+	 * @author dandyzheng
+	 * @date 2013-3-27
+	 * @see
+	 */
+	public void removeRbacProp(RbacProp rbacProp);
+	
+	/**
+	 * 批量删除RbacProp
+	 * @param RbacProps RbacProps
+	 * @author dandyzheng
+	 * @date 2013-3-27
+	 * @see
+	 */
+	public void removeRbacProps(List<RbacProp> rbacProps);
+	
+	/**
+	 * 根据RbacProp' id，删除RbacProp
+	 * @param rbacPropId RbacProp's id
+	 * @author dandyzheng
+	 * @date 2013-3-27
+	 * @see
+	 */
+	public void removeRbacProp(String rbacPropId);
+	
+	/**
+	 * 根据RbacProp' id，获取RbacProp
+	 * @param rbacPropId RbacProp's id
+	 * @return RbacProp
+	 * @author dandyzheng
+	 * @date 2013-3-27
+	 * @see
+	 */
+	public RbacProp getRbacProp(String rbacPropId); 
+	
+	/**
+	 * 获取所有RbacProp
+	 * @return List<RbacProp>
+	 * @author dandyzheng
+	 * @date 2013-3-27
+	 * @see
+	 */
+	public List<RbacProp> getAllRbacProps();
+	
+		
+}

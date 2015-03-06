@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+.tab-containt {
+	width: 96%; 
+	margin: 12px auto;
+}
+
+.table-title {
+	color: #333;
+	display: block;
+	margin-bottom: 8px;
+}
+
+.hidden {
+	display: none;
+}
+
+.no-preformance {
+	width: 100%;
+	margin-top: 8px;
+	margin-bottom: 20px;
+	text-align: center;	
+	color: #4d4d4d;
+	font-size: 13px;
+}
+
+table {
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+td, th {
+	border: 1px solid #808080;
+}
+
+.table th:nth-child(1) {
+	width: 25%;
+}
+
+.table th:nth-child(2) {
+	width: 50%;
+}
+
+.table th:nth-child(3) {
+	width: 25%;
+}

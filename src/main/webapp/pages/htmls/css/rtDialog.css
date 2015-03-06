@@ -1,0 +1,78 @@
+@CHARSET "UTF-8";
+.rt-dialog-noshow{
+	display:none;
+}
+.rt-dialog {
+	background-color: #fff;
+	border-radius: 5px;
+	width: 290px;
+	height: 190px;
+	overflow: auto;
+	z-index: 3;
+}
+
+.rt-dialog-title { 
+	height: 30px;
+	padding-left: 10px;
+	font-size: 22px;
+	border-bottom: 1px  solid #b1afb0;
+}
+
+.rt-dialog-close-button {
+	float: right;	
+}
+
+.rt-dialog-content {
+	font-size: 19px;
+	text-align: center;
+	padding: 50px 20px;
+	color: #878787;
+}
+
+.rt-dialog-foot {
+	height: 45px;
+	border-top: 1px  solid #b1afb0; 
+	width: 100%; 
+	position: absolute; 
+	bottom: 0px; 
+	text-align: center;
+}
+
+.rt-dialog-button, .rt-dialog-cancel-button, .rt-dialog-ok-button{
+	font-size: 19px;
+	background-color: #fff;
+	border: none;
+	height: 100%;
+	width: 100%;
+	padding: 10px 0;
+	color: #0095ff;
+	outline: none;
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.rt-dialog-cancel-button {
+	float: left; 
+	width: 50%;
+	border-bottom-left-radius: 5px;
+}
+
+.rt-dialog-ok-button {
+	float: right; 
+	width: 50%; 
+	border-left: 1px  solid #b1afb0;
+	border-bottom-right-radius: 5px;
+}
+
+
+.rt-dialog-button:active {
+	background-color: #eee;
+}
+
+.rt-dialog-cancel-button:active {
+	background-color: #eee;
+}
+
+.rt-dialog-ok-button:active {
+	background-color: #eee;
+}

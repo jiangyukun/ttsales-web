@@ -1,0 +1,75 @@
+/**
+ * Copyright (c) 2013 RATANSOFT.All rights reserved.
+ * @filename RbacPropDaoImpl.java
+ * @package psychlab.persistence.rbac.impl
+ * @author dandyzheng
+ * @date 2012-7-27
+ */
+package psychlab.core.gen;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import psychlab.core.jpa.AbstractFacade;
+import psychlab.domain.RbacProp;
+import psychlab.persistence.rbac.RbacPropDao;
+
+
+/**
+ * RbacProp Dao Impl
+ * @author dandyzheng
+ *
+ */
+@Repository("rbacPropDao")
+public class RbacPropDaoImpl extends AbstractFacade implements RbacPropDao {
+
+	@PersistenceContext(unitName="MAIN_DATABASE_PER")
+	private EntityManager entityManager;
+	
+	@Override
+	protected EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	public RbacProp saveRbacProp(RbacProp rbacProp) {
+		return persist(rbacProp);
+	}
+
+	public List<RbacProp> saveRbacProps(List<RbacProp> rbacProps) {
+		return persist(rbacProps);
+	}
+
+	public RbacProp editRbacProp(RbacProp rbacProp) {
+		return merge(rbacProp);
+	}
+
+	public List<RbacProp> editRbacProps(List<RbacProp> rbacProps) {
+		return merge(rbacProps);
+	}
+
+	public void removeRbacProp(RbacProp rbacProp) {
+		remove(getRbacProp(rbacProp.getPropId()));
+	}
+
+	public void removeRbacProps(List<RbacProp> rbacProps) {
+		remove(rbacProps);
+	}
+
+	public void removeRbacProp(String rbacPropId) {
+		remove(rbacPropId);
+	}
+
+	public RbacProp getRbacProp(String rbacPropId) {
+		return find(RbacProp.class, rbacPropId);
+	}
+
+	public List<RbacProp> getAllRbacProps() {
+		return this.find("from RbacProp s");
+	}
+
+}

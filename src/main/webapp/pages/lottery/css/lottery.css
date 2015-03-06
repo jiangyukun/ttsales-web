@@ -1,0 +1,189 @@
+body{
+	-webkit-overflow-scrolling: touch;
+}
+
+#rt-guide-img {
+	margin-top: 30%;	
+}
+
+.my-page-container{
+	background-color: #f7e7bd;
+	overflow-x: hidden;
+	color: #5c5c5c;
+}
+
+.lottery-bg-img {
+	width: 100%;
+}
+
+.invite-img, .car-img, .slogan-img, .exchange-img  {
+	position: absolute;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	z-index: 9;
+}
+
+.my-lottery-div {
+	position: absolute;
+	width: 100%;
+	overflow: hidden;
+}
+
+.turntable-img, .pointer-img, .my-btn-start, .my-btn-start2 {
+	position: absolute; 
+	left: 50%; 
+	top: 50%; 
+}
+
+.my-btn-start { 
+	background:url(../../../resources/sas/img/lottery/start.png) no-repeat; 
+	background-size: cover; 
+	border: none; 
+	outline: none; 
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.my-btn-start2 { 
+	background:url(../../../resources/sas/img/lottery/start2.png) no-repeat; 
+	background-size: cover; 
+	border: none; 
+	outline: none; 
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.lottery-num-div {
+	position: absolute;
+	width: 100%; 
+	text-align: right; 
+	padding-right: 8px; 
+	box-sizing: border-box;
+}
+
+.lottery-num-span {
+	color: #db556b;
+}
+
+.my-tables-div {
+	position: relative;
+	top: -6px;
+	background-color: #f7e7bd;
+	padding: 0px 8px 12px 8px; 
+}
+
+.get-prize-div {
+	padding-bottom: 13px;
+}
+
+.history-prize-div {
+	padding-bottom: 30px;
+}
+
+.title-span {
+	padding-left: 8px;
+	line-height: 18px;
+}
+
+.table {
+	border-color: #f7e7bd;
+}
+
+.table tr th {
+	background-color: #db556b;
+	color: #fff;
+	border: 0px;
+}
+
+.table tr th:first-child  {
+	border-top-left-radius: 5px;
+}
+
+.table tr th:last-child {
+	border-top-right-radius: 5px;
+}
+
+.table tr td {
+	background-color: #fff;
+	border-top: 0px;
+}
+
+.remark-div table th {
+	text-align: left;
+	padding-left: 8px;
+}
+
+.remark-div table td {
+	text-align: left;
+	padding: 8px 2px;
+}
+
+.remark-div table td div {
+	padding-left: 6px; 
+	text-indent: -6px;
+	line-height: 16px;
+	margin-left: 8px;
+}
+
+.my-dialog-content {
+	padding-top: 45px; 
+}
+.my-dialog-btn {
+	width:100%; 
+	border-radius: 0 0 5px 5px;
+}
+
+/* 广汽三菱额外样式 */
+.car-img {
+	left: 0px;
+}
+
+.slogan-img {
+	right: 0px;
+	display: none;
+}
+
+.exchange-img {
+	width: 40px; 
+	height: 40px; 
+	right: 40px;	
+	top: -5px;
+}
+
+.lottery_read_div {
+	height: 76px;
+}
+
+.my-read-remark {
+	background-color: #fff; 
+	height: 24px; 
+	line-height: 24px; 
+	margin-bottom: 2px;
+	padding-left: 8px;	
+	border-radius: 5px;
+}
+
+/*现在兑换按钮 */
+.btn-exchange {
+	margin: 6px auto;
+	padding: 0px 16px;
+	float: right;
+	height: 24px;
+	font-size: 12px;
+	color: #fff;
+	border-width: 0;
+	border-radius: 3px;
+	outline: none;
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.btn-exchange {
+	background-color: #0ba7cc !important;
+	color:#ffffff !important;
+}
+
+.btn-exchange:active {
+	background-color: #44bfdc !important;
+	color:#ffffff !important;
+}

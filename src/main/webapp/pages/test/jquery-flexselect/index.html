@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="microid" content="mailto+http:sha1:90c9a60ac311baa89f1b48b4a805b0f310361b9d"/>
+    <title>flexselect: a jQuery plugin</title>
+    <link rel="stylesheet" href="flexselect.css" type="text/css" media="screen"/>
+    <script type="text/javascript" src="/resources/jquery/jquery-1.11.1.min.js"></script>
+    <script src="liquidmetal.js" type="text/javascript"></script>
+    <script src="jquery.flexselect.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $.fn.example = function (select, type) {
+            var div = $('<div>').addClass(type).append(select.clone().attr({
+                id: select.attr("id") + "_" + type,
+                "class": type
+            }));
+            this.append(div);
+        };
+
+        $(document).ready(function () {
+            download_url = "http://jquery-flexselect.s3.amazonaws.com/jquery.flexselect-0.6.0.zip";
+            $("a.download").attr("href", download_url);
+
+            var president = $("select#president");
+
+            var animal = $("select#animal");
+            $("#example2").example(animal, "dull");
+            $("#example2").example(animal, "flexselect");
+
+            $("select.flexselect").flexselect({showDisabledOptions: true});
+            $("select.flexselect-optgroup").flexselect({indexOptgroupLabels: true});
+
+            $("input#president_flexselect-optgroup_flexselect").val("")
+            $("select").attr("tabindex", -1);
+            $("input.flexselect").each(function (index) {
+                $(this).attr("tabindex", index + 1)
+            });
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            color: #333;
+            background-color: #ccc;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 60px;
+            line-height: 100px;
+            text-align: center;
+        }
+
+        h2 {
+            margin: -30px 0 40px 125px;
+            font-size: 20px;
+            line-height: 20px;
+            text-align: center;
+            color: #999;
+        }
+
+        h3 {
+            margin: 24px 0 6px 0;
+            font-size: 18px;
+            line-height: 18px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        h4 {
+            margin: 24px 0 0 0;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        h1 img {
+            vertical-align: middle;
+        }
+
+        p {
+            margin: 0 0 24px 0;
+        }
+
+        p.example {
+            margin: 0 0 12px 0;
+        }
+
+        p.how, p.last {
+            margin: 0;
+        }
+
+        ul {
+            margin: 0 24px 24px;
+        }
+
+        li {
+            line-height: 24px;
+        }
+
+        pre {
+            background-color: #333;
+            color: #fff;
+            margin: 12px 0;
+            font-size: 12px;
+            padding: 0 6px;
+        }
+
+        pre em {
+            font-style: normal;
+            background-color: #554;
+        }
+
+        pre, tt {
+            font-family: monaco, "courier new", mono;
+        }
+
+        abbr {
+            border-bottom: 1px dotted #333;
+        }
+
+        tt {
+            font-size: 14px;
+        }
+
+        a {
+            color: #06e;
+            padding: 1px;
+        }
+
+        em {
+            font-style: normal;
+            background-color: #feb
+        }
+
+        a:hover {
+            background-color: #06c;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #content {
+            margin: 0 auto;
+            padding: 24px;
+            width: 700px;
+            background-color: #fff;
+            border: 1px solid #999;
+            border-width: 0 1px 1px 1px;
+        }
+
+        #footer {
+            margin: 0 auto 24px;
+            padding: 12px;
+            width: 700px;
+            line-height: 24px;
+        }
+
+        .help {
+            font-size: 14px;
+            color: #888;
+        }
+
+        select, input {
+            font-size: 16px;
+        }
+
+        .example div.dull, .example div.flexselect {
+            width: 350px;
+        }
+
+        .example div.dull {
+            float: left;
+        }
+
+        .example div.flexselect {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+
+    <div style="clear:both;"></div>
+
+    <div id="example2" class="example">
+        <h4>Pick an animal
+            <small>(pre-selected)</small>
+        </h4>
+    </div>
+
+
+    <div style="display:none;">
+        <select id="president" name="president">
+            <optgroup label="Dead">
+                <option value="1">George Washington</option>
+                <option value="2">John Adams</option>
+                <option value="3">Thomas Jefferson</option>
+                <option value="4">James Madison</option>
+                <option value="5">James Monroe</option>
+                <option value="6">John Quincy Adams</option>
+                <option value="7">Andrew Jackson</option>
+                <option value="8">Martin Van Buren</option>
+                <option value="9">William Henry Harrison</option>
+                <option value="10">John Tyler</option>
+                <option value="11">James Knox Polk</option>
+                <option value="12">Zachary Taylor</option>
+                <option value="13">Millard Fillmore</option>
+                <option value="14">Franklin Pierce</option>
+                <option value="15">James Buchanan</option>
+                <option value="16">Abraham Lincoln</option>
+                <option value="17">Andrew Johnson</option>
+                <option value="18">Ulysses S. Grant</option>
+                <option value="19">Rutherford B. Hayes</option>
+                <option value="20">James Garfield</option>
+                <option value="21">Chester Arthur</option>
+                <option value="22">Grover Cleveland</option>
+                <option value="23">Benjamin Harrison</option>
+                <option value="24">Grover Cleveland</option>
+                <option value="25">William McKinley</option>
+                <option value="26">Theodore Roosevelt</option>
+                <option value="27">William Howard Taft</option>
+                <option value="28">Woodrow Wilson</option>
+                <option value="29">Warren Harding</option>
+                <option value="30">Calvin Coolidge</option>
+                <option value="31">Herbert Hoover</option>
+                <option value="32">Franklin D. Roosevelt</option>
+                <option value="33">Harry S Truman</option>
+                <option value="34">Dwight D. Eisenhower</option>
+                <option value="35">John F. Kennedy</option>
+                <option value="36">Lyndon Johnson</option>
+                <option value="37">Richard Nixon</option>
+                <option value="38">Gerald Ford</option>
+                <option value="40">Ronald Reagan</option>
+            </optgroup>
+            <optgroup label="Alive">
+                <option value="39">James Carter</option>
+                <option value="41">George H. W. Bush</option>
+                <option value="42">William J. Clinton</option>
+                <option value="43">George W. Bush</option>
+                <option value="44">Barack H. Obama</option>
+            </optgroup>
+        </select>
+
+        <select id="animal" name="animal">
+            <option value="a">angelfish</option>
+            <option value="b">buffalo</option>
+            <option value="c" selected="selected">canary</option>
+            <option value="d" disabled="disabled">dinosaur</option>
+            <option value="e">eel</option>
+            <option value="f">flamingo</option>
+            <option value="g">goldfish</option>
+            <option value="h">hippo</option>
+            <option value="i">iguana</option>
+            <option value="j">jellyfish</option>
+            <option value="k">kangaroo</option>
+            <option value="l">llama</option>
+            <option value="m">moose</option>
+            <option value="n">narwhal</option>
+            <option value="o">ostrich</option>
+            <option value="p">pelican</option>
+            <option value="q">quail</option>
+            <option value="r">raccoon</option>
+            <option value="s">snail</option>
+            <option value="t">toucan</option>
+            <option value="u" disabled="disabled">unicorn</option>
+            <option value="v">vulture</option>
+            <option value="w">wildebeest</option>
+            <option value="f">fox</option>
+            <option value="x">xenopus</option>
+            <option value="y">yak</option>
+            <option value="z">zebra</option>
+        </select>
+    </div>
+</div>
+</body>
+</html>

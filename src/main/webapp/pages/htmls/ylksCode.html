@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>优惠码</title>
+<base href="../../" /> 
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes,target-densitydpi=medium-dpi" >
+<link type="text/css" rel="stylesheet" href="resources/rt/theme/default/rtAll.min.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/rt/jquery.rt.all.min.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<style type="text/css">
+body { 
+	background-color: #268bb9;
+}
+
+.divTop{
+	width: 100%;
+	padding-top:27px;
+	height:78px;
+	background-color: #f8f7f5;
+}
+.divTop div {
+	bottom:0;
+	margin:auto;
+	width:196px;
+	height:65px;
+	background-image: url("resources/sas/img/scheme/201001/zz.png") ;
+	background-repeat: no-repeat;
+	background-size:cover;
+	text-align: center;
+}
+.spanClass {
+	display: block;
+    font-size: 24px;
+    margin-top: 13px;
+    padding-top: 17px;
+    color: red
+}
+
+.divCenter{
+	width: 100%;
+	height:68px;
+}
+
+.divCenter div{
+	margin:4px auto;
+	width: 290px;
+	height:61px;
+	border: 0;
+}
+
+.divCenter div img{
+	width: 100%;
+	height:100%;
+	border: 0;
+}
+
+.divBottom{
+	height:345px;
+	width: 100%; */
+	background-color: #f8f7f5;
+	clear: both;
+}
+
+.divBottom >div{
+	margin:auto;
+	/* width:320px; */
+	width:100%;
+	height:345px;
+	background-image: url("resources/sas/img/scheme/201001/beijin.png") ;
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+
+.divBg{
+	height:100%;
+	width: 100%; 
+	background-color: #f8f7f5;
+	clear: both;
+}
+
+.question{
+	margin-left:16px;
+	padding-top: 40px; 
+	/* bottom:302px; */
+	clear: both;
+}
+.meth{
+	margin-left:8px;
+	margin-right:26px;
+	clear: both;
+}
+
+.meth span {
+	background-color: #674941;
+	width: 57px;
+	padding-left: 4px;
+}
+
+.meth p {
+	color:#ffffff;
+	margin-left: 4px;
+	line-height: 20px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.my-head-p {
+	padding-left:20px; 
+}
+</style>
+<script type="text/javascript">
+
+
+
+/* function setTop(){
+	//640 185
+	var divTopBgWidth = 640;
+	var divTopBgHeight = 185;
+
+	var divWidth = $(document).width();
+	var divHeight = docWidth/divTopBgWidth*divTopBgHeight;
+	
+	var imgHeight = docWidth/bgWidth*bgHeight;
+	$('#divTop').css('height',divWidth);
+	$('#divTop').css('width',divHeight);
+	
+}
+
+
+function setCenter(){
+	//640 121
+	var bgWidth = 640;
+	var bgHeight = 121;
+
+
+	var divWidth = $(document).width();
+	var divHeight = docWidth/divTopBgWidth*divTopBgHeight;
+	
+	var imgHeight = docWidth/bgWidth*bgHeight;
+	$('#divTop').css('height',divWidth);
+	$('#divTop').css('width',divHeight);
+	
+}
+ */
+function setBottom(){
+	//640 690
+	var bgWidth = 640;
+	var bgHeight = 690;
+	var padding = 33;
+
+	var docWidth = $(document).width();
+	var docHeight = $(document).height();
+	var divHeight = docWidth/bgWidth*bgHeight;
+
+	$('#divBottom').css('width',docWidth); 	
+}
+$(function(){
+	weixin.config({
+        debug: false,
+        jsApiList: ['onMenuShareTimeline','hideOptionMenu','hideMenuItems', 'showOptionMenu', 'onMenuShareAppMessage','getNetworkType']
+    });
+	weixin.ready(function () {
+		weixin.hideOptionMenu();
+		setBottom();
+		var code = $.sas.util.getUrlParam('code');
+		$('#code').html(code);
+    });
+	/*
+	$.sas.weixin.onWeixinPageReady(function(){ 
+		$.sas.weixin.hideOptionMenu();
+		setBottom();
+		var code = $.sas.util.getUrlParam('code');
+		$('#code').html(code);
+	});*/
+  
+})
+
+	
+</script>
+</head>
+<body style="overflow: scroll;">
+	<div id="page" > 
+		<div   style="background-color: #f8f7f5">
+			<div id="divTop" class="divTop">
+				<div ><span id="code" class="spanClass"></span></div>
+			</div>
+			<div id="divCenter" class="divCenter">
+				<div>
+					<img src="resources/sas/img/scheme/201001/zzii.png"/>
+				</div>
+			</div>
+			<div id="divBottom" class="divBottom">
+				<div>
+					<div id="question" class="question font-family-heiti font-size-t font-title-color-674941">
+ 					</div>
+					<div class="meth font-family-heiti">
+						<span class="font-btn-color-white font-size-t">如何使用优惠码呢？</span>
+						<p class="font-size-t">建议您直接截屏此页面优惠码，出示店员截屏的图片就可以啦。</p>
+						<br/>
+						<p class="font-size-t">嵊州奥泽店详细地址：嵊州市嵊州大道南1801号</p>
+						<p class="font-size-t">服务热线：0575-81398899</p>
+						<p class="font-size-t">保养优惠码有效时间：2015-1-30至2015-2-8 24时</p>
+					</div>
+					   
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>

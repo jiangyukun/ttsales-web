@@ -1,0 +1,200 @@
+@CHARSET "UTF-8";
+
+html,input,button,select {
+	font-family: "微软雅黑", "华文细黑", "黑体简", sans-serif;
+}
+
+html,.font_body {
+	font-size: 16px;
+	line-height: 1.4;
+	letter-spacing: 0.12rem;
+	color: #212121;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+}
+
+@media only all and (max-width : 319px) {
+	html,.font_body {
+		font-size: 6px;
+	}
+}
+
+@media only all and (min-width : 320px) and (max-width : 374px) {
+	html,.font_body {
+		font-size: 8px;
+	}
+}
+
+@media only all and (min-width : 375px) and (max-width : 413px) {
+	html,.font_body {
+		font-size: 9.375px;
+	}
+}
+
+@media only all and (min-width : 414px) and (max-width : 479px) {
+	html,.font_body {
+		font-size: 10.35px;
+	}
+}
+
+@media only all and (min-width : 480px) and (max-width : 639px) {
+	html,.font_body {
+		font-size: 12px;
+	}
+}
+
+@media only all and (min-width : 640px) and (max-width : 719px) {
+	html,.font_body {
+		font-size: 16px;
+	}
+}
+
+@media only all and (min-width : 720px) and (max-width : 799px) {
+	html,.font_body {
+		font-size: 18px;
+	}
+}
+
+@media only all and (min-width : 800px) and (max-width : 959px) {
+	html,.font_body {
+		font-size: 20px;
+	}
+}
+
+@media only all and (min-width : 960px) and (max-width : 1079px) {
+	html,.font_body {
+		font-size: 24px;
+	}
+}
+
+@media only all and (min-width : 1080px) and (max-width : 1439px) {
+	html,.font_body {
+		font-size: 27px;
+	}
+}
+
+@media only all and (min-width : 1440px) {
+	html,.font_body {
+		font-size: 36px;
+	}
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.fixed_full_screen,.layer_background,.layer_overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+/* 背景层-有背景图片 */
+.layer_background {
+	background-color: #7ad1a6;
+	background-image: url(../images/background.png);
+	background-position: center center;
+	background-size: cover;
+}
+
+/* 背景层-纯色 */
+.layer_background_pure {
+	background-color: #79d1a6;
+	background-size: 100% 100%;
+}
+
+/* （内容）容器层 */
+.layer_container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.layer_container_top{
+	padding-top: 1rem;
+}
+
+/*（蒙板）覆盖层 */
+.layer_overlay {
+	background: rgba(0, 0, 0, 0.8);
+	display: none;
+}
+
+.button_positive,.button_negative,.button_gray {
+	display: block;
+	margin: 1em auto;
+	padding: 0.6em;
+	width: 90%;
+	font-size: 2.0625rem;
+	color: #fff;
+	border-width: 0;
+	border-radius: 0.32em;
+	outline: none;
+}
+
+/* 肯定按钮 */
+.button_positive {
+	background-color: #1e84cc !important;
+	color:#ffffff !important;
+}
+
+.button_positive:active {
+	background-color: #3694c0 !important;
+	color:#ffffff !important;
+}
+
+.button_positive:disabled {
+	background-color: rgba(56, 184, 240, 0.5) !important;
+	color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 否定按钮 */
+.button_negative {
+	background-color: #fa5c50 !important;
+}
+
+.button_negative:active {
+	background-color: #c84940 !important;
+}
+
+.button_negative:disabled {
+	background-color: rgba(250, 92, 80, 0.5) !important;
+	color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 灰色按钮 */
+.button_gray {
+	background-color: #AAAAAA !important;
+}
+
+.button_gray:active {
+	background-color: #CCCCCC !important;
+}
+
+.s_font_size {
+	font-size: 1rem;
+}
+
+.m_font_size {
+	font-size: 2rem;
+}
+
+.l_font_size {
+	font-size: 4rem;
+}
+
+.xl_font_size {
+	font-size: 8rem;
+}

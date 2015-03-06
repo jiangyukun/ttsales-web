@@ -1,0 +1,62 @@
+@CHARSET "UTF-8";
+
+.bonus-div {
+	height: 104px;
+	background-color: #cd4f50;
+	border: 1px solid #cd4f50;
+}
+
+.rmb-img {
+	width: 38px;
+	height: 38px;
+	padding-left: 19px;
+	padding-right: 11px;
+}
+
+.rmb-border-div {
+	width: 117px;
+	height: 30px;
+	line-height:30px;
+	margin-left: 8px;
+	margin-right: 20px;
+	border: 1px solid #c9c9c9;
+	border-radius: 6px;
+	text-align: center;
+	background-color: #cd4f50;
+	color: #ffffff;
+	outline:none;
+}
+
+.rmb-surplus-div {
+	padding-right: 32px;
+}
+
+.read-agreement-div {
+	text-align: center;
+}
+
+.checkbox-div {
+	width:253px; 
+	margin: 0px auto;
+}
+
+.font-blue-color {
+	color: #1e84cc;
+}
+
+.font-red-color {
+	color:#cd4f50;
+}
+
+.my-btn-div {
+	margin: 12px 0px;
+}
+
+.my-btn {
+	width: 90%;
+	margin: 0px auto !important;
+}
+
+.my-rules-div {
+	margin-left:19px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>领取成功</title>
+<base href="../../" />
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=medium-dpi" >
+<link type="text/css" rel="stylesheet" href="resources/rt/theme/default/rtAll.min.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/humane/humane/custom.css" />
+<link type="text/css" rel="stylesheet" href="pages/report/css/receiveSuccess.css?v=v1.0.9_20150005" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/rt/jquery.rt.all.min.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/humane/humane.min.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/report/js/receiveSuccess.js?v=v1.0.9_20150005"></script>
+</head>
+<body>
+	<div id="page" class="page-full-screen">
+		<div class="page-container font-family-heiti">
+			<div class="bonus-div font-btn-color-white">
+				<div style="height: 32px;"></div>
+				<div class="list-contain-center-item font-size-xl">
+					<img class="receive-img" src="resources/sas/img/success.png" />
+					<div class="my-div font-white-color font-letter-spacing">
+					已通过微信消息给您派发了个
+					<span id="rmb_amount" class='font-black-color font-family-heiti'></span>的红包，请注意查收！
+				</div>
+				</div>
+			</div>
+			<div class="my-margin-top-1 font-input-aft-color font-size-m text-align-center" >拆开红包后，红包金额将自动进入您的微信钱包！</div>
+			<div class="my-margin-top-2 list-contain-center-item my-btn-div">
+				<div class="layout-right">
+					<input class="btn-positive font-size-l my-btn" type="button" onclick="receiveSuccess.cancel()" value="返回" />
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

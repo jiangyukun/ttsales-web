@@ -1,0 +1,12 @@
+<Resource name="jdbc/sas" 
+    type="javax.sql.DataSource"
+    driverClassName="com.mysql.jdbc.Driver"
+	url="jdbc:mysql://10.137.1.137:3306/sas" 
+	username="sas" 
+	password="sas" 
+	maxActive="5" 
+	maxIdle="5"
+	validationQuery="select 1 from dual" 
+	testOnBorrow="true" 
+	testOnReturnw="true"
+	testWhileIdlew="true" /> 

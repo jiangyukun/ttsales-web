@@ -1,0 +1,123 @@
+/**
+ * Copyright (c) 2012 RATANSOFT.All rights reserved.
+ * @filename RbacMenuMB.java
+ * @package psychlab.web.rbac
+ * @author dandyzheng
+ * @date 2013-3-28
+ */
+package psychlab.core.gen;
+
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
+
+import psychlab.domain.RbacProp;
+import psychlab.service.rbac.RbacPropService;
+import psychlab.web.common.AbstractClassBaseMB;
+import psychlab.web.util.JsfUtil;
+
+
+/**
+ * 
+ * @author dandyzheng
+ * 
+ */
+@ManagedBean(name = "rbacPropMB")
+@ViewScoped
+public class RbacPropMB extends AbstractClassBaseMB {
+	private static final long serialVersionUID = 1L;
+	
+	private final String PROP_ID = "rbacPropId";
+	
+	@ManagedProperty("#{rbacPropService}")
+	private RbacPropService rbacPropService;
+
+	private RbacProp queryRbacProp;
+	private RbacProp selectedRbacProp;
+	private List<RbacProp> rbacProps;
+	
+	public RbacPropMB() {
+		System.out.println("init RbacPropMB");
+	}
+
+	@Override
+	public void initPage() {
+		if (queryRbacProp == null) {
+			queryRbacProp = new RbacProp();
+		}
+		if(selectedRbacProp == null){
+			selectedRbacProp = new RbacProp();
+		}
+		exeQuery();
+	}
+	
+
+	public void preQuery() {
+		if (queryRbacProp == null) {
+			queryRbacProp = new RbacProp();
+		}
+	}
+
+	public void exeQuery() {
+		preQuery();
+		rbacProps = rbacPropService.getAllRbacProps();
+		aftQuery();
+	}
+	
+	public void aftQuery(){
+		
+	}
+	
+	public void preAdd(){
+		JsfUtil.redirect("rbacPropEdit",null);
+	}
+	
+	public void preUpdate(){
+		JsfUtil.redirect("rbacPropEdit",PROP_ID+"=" + JsfUtil.getPostParam(this.PROP_ID));
+	}
+	
+	
+	public void excRemove(){
+		this.rbacPropService.removeRbacProp(selectedRbacProp);
+		this.rbacProps.remove(selectedRbacProp);
+	}
+	
+	public void aftRemove(){
+		
+	}
+
+	public RbacPropService getRbacPropService() {
+		return rbacPropService;
+	}
+
+	public void setRbacPropService(RbacPropService rbacPropService) {
+		this.rbacPropService = rbacPropService;
+	}
+
+	public RbacProp getQueryRbacProp() {
+		return queryRbacProp;
+	}
+
+	public void setQueryRbacProp(RbacProp queryRbacProp) {
+		this.queryRbacProp = queryRbacProp;
+	}
+
+	public List<RbacProp> getRbacProps() {
+		return rbacProps;
+	}
+
+	public void setRbacProps(List<RbacProp> rbacProps) {
+		this.rbacProps = rbacProps;
+	}
+
+	public RbacProp getSelectedRbacProp() {
+		return selectedRbacProp;
+	}
+
+	public void setSelectedRbacProp(RbacProp selectedRbacProp) {
+		this.selectedRbacProp = selectedRbacProp;
+	}
+
+}

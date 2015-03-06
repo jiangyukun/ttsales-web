@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>添加部门</title>
+    <link rel="stylesheet" type="text/css"
+          href="../../resources/template_admin/assets/plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/template_admin/assets/plugins/select2/select2.css">
+    <link rel="stylesheet" type="text/css" href="css/department.css">
+    <script type="text/javascript" src="../../resources/jquery/jquery-1.11.1.min.js"></script>
+    <script src="js/department.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            添加部门
+        </div>
+        <div class="panel-body">
+            <div class="dpt-add-area">
+                <div class="input-group">
+                    <label for="name" class="input-group-addon">名称</label>
+                    <input id="name" type="text" class="form-control">
+                </div>
+            </div>
+            <div id="dptTipPanel" class="panel panel-default" style="height: 200px;overflow: auto;">
+                <div id="inputTip" class="list-group"></div>
+            </div>
+            <!-- 部门重复提示 -->
+            <div id="dptNameExist" class="alert alert-danger fade in hidden" role="alert">
+                <h4>门店已存在！您可以选择关联或更换名称</h4>
+
+                <p>
+                    <button id="repeatCancel" type="button" class="btn btn-default">取消</button>
+                    <button id="repeatRelate" type="button" class="btn btn-danger">关联</button>
+                </p>
+            </div>
+            <!-- 添加成功 -->
+            <div id="dptSaved" class="panel hidden">
+                <div class="panel-body">
+                    <div class="alert alert-success alert-dismissable" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        添加成功
+                    </div>
+                </div>
+            </div>
+            <!-- 确定删除按钮 -->
+            <div class="dpt-btns">
+                <div class="dpt-btn">
+                    <button id="ok" class="btn btn-primary">确定</button>
+                </div>
+                <div class="dpt-btn">
+                    <button id="cancel" class="btn">取消</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../resources/template_admin/assets/plugins/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

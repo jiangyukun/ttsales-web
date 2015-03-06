@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>排行榜</title>
+<base href="../../" />
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,target-densitydpi=medium-dpi">
+<link type="text/css" rel="stylesheet" href="resources/rt/theme/default/rtAll.min.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/common.v4.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="resources/sas/css/icons.css?v=v1.0.9_20150005" />
+<link type="text/css" rel="stylesheet" href="pages/bus/css/rankingList.css?v=v1.0.9_20150005" />
+<script type="text/javascript" src="resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resources/rt/jquery.rt.all.min.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/artTemplate/artTemplate.js"></script>
+<script type="text/javascript" src="resources/sas/jquery.sas.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="resources/weixinJS/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="resources/weixinJS/weixin-wrapper.js?v=v1.0.9_20150005"></script>
+<script type="text/javascript" src="pages/bus/js/rankingList.js?v=v1.0.9_20150005"></script>
+<script id="ranking_item" type="text/template">
+	{{each rows as person i}}
+		<div class="list-item border-bottom friend-item" data-id='{{person.userId}}' >
+			{{if i==0 && currPage == 1}}
+				<div class="ranking-img-div"><img class="ranking-img" src='resources/sas/img/gold.png'/></div>
+			{{else if i==1 && currPage == 1}}
+				<div class="ranking-img-div"><img class="ranking-img" src='resources/sas/img/silver.png'/></div>
+			{{else if i==2 && currPage == 1}}
+				<div class="ranking-img-div"><img class="ranking-img" src='resources/sas/img/copper.png'/></div>
+			{{else}}
+				<div class="ranking-img-other">{{((currPage -1)*10 + i+1)}}</div>
+			{{/if}}	
+			{{if person.headUrl}}
+					<img class="head-img" src='{{person.headUrl}}'/>
+				{{else}}
+					<img class="head-img" src='resources/sas/img/no_head_pic.png'/>
+			{{/if}}
+			<div class="layout-center my-center-div"> 
+				<div class="user-info-div">
+					{{if person.gender}}
+						{{if person.gender=='0'}}
+							<img class="gender-man-img" src='resources/sas/img/man.png'/>
+							{{else}}
+							<img class="gender-female-img" src='resources/sas/img/female.png'/>
+						{{/if}}
+						{{else}}
+							<div class="blank-div"></div>
+					{{/if}}
+					<span class="name-span font-size-l font-title-rf-color ">{{person.userName}}</span>
+				</div>
+			</div>
+			<div class="my-right-div font-color-red layout-vertical-center">
+						￥{{person.income}}
+			</div>
+		</div>
+	{{/each}}
+</script>
+</head>
+<body>
+	<div id="page" class="page-full-screen">
+		<div class="page-container font-family-heiti">
+			<div class="ranking-head">
+				<div
+					class="list-item border-top-bottom my-list-item page-container-margin-top">
+					<div class="my-left">
+						<span class="font-size-l">产品</span>
+					</div>
+					<div class="layout-right">
+						<select id="select_product" onchange="rankingList.selectProduct()"
+							class="input my-input">
+						</select>
+					</div>
+					<div class="btn-list-item-right my-icon-div">
+						<div class="btn-item-jump-color font-size-l icon-pop-jump"></div>
+					</div>
+				</div>
+				<div
+					class="list-item border-top-bottom my-list-item page-container-margin-top my-ranking-item">
+					<div class="my-left">
+						<span class="font-lable-color font-size-l">我的排名：</span> 
+						<span id="my_ranking" class="font-color-red font-size-l"></span>
+					</div>
+					<div class="layout-right  my-right">
+						<span class="font-lable-color font-size-l">我的红包：</span>
+						 <span id="my_bonus" class="font-color-red font-size-l"></span>
+					</div>
+				</div>
+			</div>
+			<div class="ranking-content">
+					<div id='rankingList' data-role="rtScroll" class="list-has-data">
+						<!-- <div id='rankingList' class="list-has-data"></div> -->
+					</div>
+				</div>
+			</div>
+	</div>
+</body>
+</html>
+

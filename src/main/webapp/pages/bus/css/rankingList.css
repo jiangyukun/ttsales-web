@@ -1,0 +1,136 @@
+.my-list-item {
+	height: 43px;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.my-left {
+	padding-left: 8px;
+}
+
+.my-input {
+	direction: rtl;
+}
+
+.my-right {
+	padding-right: 10px;
+}
+
+select option {
+	direction: ltr;
+} 
+
+.my-icon-div {
+	padding: 12px 8px 8px 3px;
+}
+
+.ranking-img {
+	width: 30px;
+	height: 30px;
+}
+.ranking-img-div{
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 12px;
+}
+.ranking-img-other {
+	border-radius: 20px;
+	background-color: #ecd7bc;
+	color: red;
+	width: 26px;
+	height: 26px;
+	text-align: center;
+	margin-left: 9px;
+	margin-top: 13.5px;
+	vertical-align: top;
+	line-height: 26px;
+}
+
+.font-color-red {
+	color: red;
+}
+
+.my-right-div {
+	padding: 8.5px 10px;
+	line-height: 36px;
+	-webkit-box-flex: 0.35;
+	-webkit-flex: 0.35;
+	flex: 0.35;
+	text-align:right;
+}
+
+.my-ranking-item {
+	background-color: #c9c9c9;
+}
+
+.my-container-top {
+	margin-top: 8.5px;
+}
+.user-info-div{
+	line-height: 36px;
+}
+.friend-item {
+	height: 53px;
+}
+
+.head-img {
+	padding: 9px 9px;
+	width: 36px;
+	height: 36px;
+}
+
+.my-center-div {
+	padding: 8.5px 4px;
+}
+
+.gender-female-img {
+	width: 12px;
+	height: 12.5px;
+}
+
+.gender-man-img {
+	width: 11px;
+	height: 13px;
+}
+
+.blank-div {
+	width: 16px;
+	height: 10px;
+	float: left;
+}
+
+.name-span {
+	padding-left: 6.5px;
+}
+
+.weixin-span {
+	padding-left: 6.5px;
+}
+
+.weixin-img {
+	width: 12.5px;
+	height: 10px;
+}
+
+
+.ranking-head {
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 105px;
+    width: 100%;
+}
+
+
+.ranking-content {
+    display: block;
+    position: absolute;
+    top: 105px;
+    /* height: 80%; */
+    bottom:0;
+    width: 100%;
+    background-color: #fff;
+    overflow: auto;
+}

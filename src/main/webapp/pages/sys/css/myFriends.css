@@ -1,0 +1,90 @@
+.my-friend-list {
+	position: absolute;
+	width: 100%;
+	top: 8.5px;
+    bottom:0;
+	overflow: auto;
+}
+
+.friend-item {
+	height: 53px; 
+}
+
+.head-img {
+	padding: 8.5px 9.5px;
+	width: 36px;
+	height: 36px;
+}
+
+.my-center-div {
+	padding: 8.5px 4px;
+}
+
+.gender-female-img {
+	width: 12px;
+	height: 12.5px;
+}
+
+.gender-man-img {
+	width: 11px;
+	height: 13px;
+}
+
+.blank-div{
+	width: 16px; 
+	height: 10px; 
+	float: left;
+}
+
+.name-span {
+	padding-left: 6.5px;
+}
+
+.weixin-span {
+	padding-left: 6.5px;
+}
+
+.weixin-img {
+	width: 12.5px;
+	height: 10px;
+}
+
+.my-btn {
+	margin: auto;
+	width: auto;
+	height: 53px;
+	border-radius: 0px;
+	padding: 6px;
+}
+
+/* #cancleDialog {
+	display: none; 
+	position: fixed; 
+	top: 0; 
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	z-index: 990; 
+	background: rgba(155, 155, 155, 0.6);
+}
+.dialogDiv {
+	border-radius: 1rem; 
+	text-align:center; 
+	width: 70%;
+	overflow: auto;
+	margin: 50% auto; 
+	background: #fff; 
+	padding-top:1%; 
+	padding-bottom:1%;
+	font-size: 1.75rem;
+}
+.btnleft {
+	float:left; 
+	width:40%; 
+	padding-left:5%;
+}
+.btnright {
+	float:right; 
+	width:40%; 
+	padding-right:5%;
+} */

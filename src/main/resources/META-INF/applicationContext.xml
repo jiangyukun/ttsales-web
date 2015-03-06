@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/jee 
+		http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+		http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-3.0.xsd
+		">
+	
+	<context:component-scan base-package="cn.ttsales.work.persistence"></context:component-scan>
+	<context:component-scan base-package="cn.ttsales.work.service"></context:component-scan>
+	<context:component-scan base-package="cn.ttsales.work.rush"></context:component-scan>
+	<context:component-scan base-package="cn.ttsales.work.web.servlet"></context:component-scan>
+	<context:component-scan base-package="cn.ttsales.work.location"></context:component-scan>
+	<context:component-scan base-package="cn.ttsales.work.wxapi"></context:component-scan>
+	
+	<context:component-scan base-package="cn.ttsales.org.persistence"></context:component-scan>
+	<context:component-scan base-package="cn.ttsales.org.service"></context:component-scan>
+	
+	<task:annotation-driven></task:annotation-driven>
+	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/sas" />
+
+	<bean id="persistenceUnitManager"
+		class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+		<property name="persistenceXmlLocations">
+			<list value-type="java.lang.String">
+				<value>classpath*:META-INF/persistence.xml</value>
+			</list>
+		</property>
+		<property name="dataSources">
+			<map>
+				<entry key="MAIN_DATABASE_PER" value-ref="dataSource" />
+			</map>
+		</property>
+
+		<!-- if no datasource is specified, use this one -->
+		<property name="defaultDataSource" ref="dataSource" />
+	</bean>
+
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitManager" ref="persistenceUnitManager" />
+		<property name="persistenceUnitName" value="MAIN_DATABASE_PER"></property>
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="showSql" value="true"></property>
+				<property name="generateDdl" value="false"></property>
+			</bean>
+		</property>
+		<property name="jpaProperties">
+			<value>
+				<!-- hibernate.dialect= org.hibernate.dialect.OracleDialect -->
+				hibernate.dialect = org.hibernate.dialect.MySQLDialect
+			</value>
+		</property>
+		<property name="packagesToScan">
+		    <list>
+		    	<value>cn.ttsales.work.domain</value>
+		    	<value>cn.ttsales.work.dto</value>
+		    </list> 
+		</property>
+	</bean>
+	
+
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<qualifier value="MAINTRA"></qualifier>
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	
+	<bean id="messageSource" 
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+            <list>
+                 <value>META-INF.bundle</value>
+                 <value>META-INF.messages</value>
+                 <value>META-INF.weixin</value>
+                 
+            </list>
+       </property>
+       <property name="useCodeAsDefaultMessage" value="true" />
+	</bean>
+	
+	<context:annotation-config />
+
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+</beans>
+
+

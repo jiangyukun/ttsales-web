@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>二维码登录</title>
+<script type="text/javascript" src="../../resources/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../resources/jquery/jquery.qrcode.min.js"></script>
+<style>
+	.content{
+		text-align: center;
+	}
+	
+	.title{
+		padding:30px 0;
+		font-size: 30px;
+		font-weight: bold;
+	}
+	
+	.qrcodeArea{
+		position:relative;
+		width:300px;
+		height:300px;
+		margin:auto;
+		border: 1px solid;
+	}
+	
+	.qrcode{
+		position:absolute;
+		top:0;
+		left:0;
+		bottom:0;
+		right:0;
+		width:260px;
+		height:260px;
+		margin:auto;
+	}
+	
+	.hint{
+		width:200px;
+		margin:auto;
+		margin-top:30px;
+		padding:15px;
+		border: 1px solid;
+		border-radius: 30px;
+		font-size: 10px;
+	}
+</style>
+
+<script type="text/javascript">
+	$(function(){
+		initPage();
+	});
+	
+	function initPage(){
+		$(".qrcode").qrcode({
+			width: 260, //宽度
+			height:260, //高度
+			text: "www.baidu.com" //任意内容
+		});
+	}
+</script>
+</head>
+<body>
+	<div class="content">
+		<div class="title">
+			微车组织管理平台
+		</div>
+		<div class="qrcodeArea">
+			<div class="qrcode"></div>
+		</div>
+		<div class="hint">
+			请使用微信扫描二维码以登录
+		</div>
+	</div>
+</body>
+</html>
